@@ -7,6 +7,9 @@ This project is absolutely free.
 It is licensed under the GNU LIBRARY GENERAL PUBLIC LICENSE V2.
 I accept no responsibility for incorrect use.
 
+I dissociate myself from this source, I was inexperienced in OO when I wrote it.
+Nevertheless, this tool has served me well for 25 years on all platforms.
+
 Compile the project with ANT (this is not a Maven project):
 
 	cd filebrowser10
