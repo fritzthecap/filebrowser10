@@ -4,7 +4,7 @@ Author: Fritz Ritzberger, Vienna
 A platform-independent Java/Swing file explorer.
 
 This project is absolutely free.
-It is licensed under the GNU LIBRARY GENERAL PUBLIC LICENSE V2, see License.html.
+It is licensed under the GNU LIBRARY GENERAL PUBLIC LICENSE V2.
 I accept no responsibility for incorrect use.
 
 Compile the project with ANT (this is not a Maven project):
