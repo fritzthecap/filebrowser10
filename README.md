@@ -14,8 +14,10 @@ Compile the project with ANT (this is not a Maven project):
 
 All open source libraries are present as .class files in various sub-directories.
 The newly compiled application will be in filebrowser10 root directory.
-Just modify the source and then run ANT, it will build a new FileBrowser10.jar.
-You can run it then via
+Modify the sources and then run ANT, it will build a new FileBrowser10.jar.
+If you want all .java sources in the JAR, remove the "excludes" line 44 in build.xml.
+
+You can run the application via
 
 	java -jar FileBrowser10.jar
 	

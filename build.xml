@@ -41,9 +41,11 @@
 	
 	<target name="FileBrowser" depends="compileFileBrowser">
 		<jar basedir="."
+				excludes="**/*.java"
 				destfile="FileBrowser10.jar" 
 				manifest="META-INF/MANIFEST.MF">
 			<exclude name="FileBrowser10.jar"/>
+			<exclude name=".git/**"/>
 		</jar>
 	</target>
 	
