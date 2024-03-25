@@ -8,7 +8,7 @@
 =========================================================-->
 
 
-	<!-- Depedencies -->
+	<!-- Dependencies -->
 
 	<target name="all" depends="clean, FileBrowser, clean"/>
 
@@ -40,10 +40,10 @@
 	<!-- Application Build -->
 	
 	<target name="FileBrowser" depends="compileFileBrowser">
-		<mkdir dir="../products/"/>
 		<jar basedir="."
-			destfile="../products/FileBrowser10.jar" 
-			manifest="META-INF/MANIFEST.MF">
+				destfile="FileBrowser10.jar" 
+				manifest="META-INF/MANIFEST.MF">
+			<exclude name="FileBrowser10.jar"/>
 		</jar>
 	</target>
 	

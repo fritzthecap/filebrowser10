@@ -13,11 +13,11 @@ Compile the project with ANT (this is not a Maven project):
 	java -cp ../ant/ant.jar org.apache.tools.ant.Main
 
 All open source libraries are present as .class files in various sub-directories.
-The newly compiled application will be in ../products.
-Just modify the source and then run ANT, it will build a new ../products/FileBrowser10.jar.
+The newly compiled application will be in filebrowser10 root directory.
+Just modify the source and then run ANT, it will build a new FileBrowser10.jar.
 You can run it then via
 
-	java -jar ../products/FileBrowser10.jar
+	java -jar FileBrowser10.jar
 	
 The application will create a (hidden) .friware directory in your user HOME where it persists runtime properties.
 Main class is 
