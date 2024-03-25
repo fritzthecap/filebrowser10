@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: JimiProClasses.jar
+Main-Class: fri.gui.swing.filebrowser.FileBrowser
+Implementation-Title: Java File World
+Implementation-Version: 9.7
+Implementation-Vendor: Fritz Ritzberger
+

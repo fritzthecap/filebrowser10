@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<project name="friware" default="all">
+
+<!--========================================================
+	Build command line:
+	java -cp .:../ant/ant.jar:../ant/xml-apis.jar:../ant/xercesImpl.jar org.apache.tools.ant.Main
+=========================================================-->
+
+
+	<!-- Depedencies -->
+
+	<target name="all" depends="clean, FileBrowser, clean"/>
+
+	<target name="builddynlib"> <!-- Classes loaded dynamically by name at runtime -->
+		<javac debug="on" srcdir="."
+			includes="fri/gui/awt/resourcemanager/resourceset/resource/*.java, fri/gui/swing/resourcemanager/resourceset/resource/*.java">
+		</javac>
+	</target>
+
+	<target name="compileActivation" depends="builddynlib">
+		<javac debug="on" srcdir="."
+			includes="fri/util/activation/*.java">
+		</javac>
+	</target>
+
+	<target name="compileMailBrowser" depends="compileActivation">
+		<javac debug="on" srcdir="."
+			includes="fri/gui/swing/mailbrowser/MailFrame.java, fri/gui/swing/mailbrowser/viewers/*.java, fri/util/mail/store/*.java, fri/util/browser/*.java">
+		</javac>
+	</target>
+	
+	<target name="compileFileBrowser" depends="compileMailBrowser">
+		<javac debug="on" srcdir="."
+			includes="fri/gui/swing/filebrowser/FileBrowser.java">
+		</javac>
+	</target>
+
+
+	<!-- Application Build -->
+	
+	<target name="FileBrowser" depends="compileFileBrowser">
+		<mkdir dir="../products/"/>
+		<jar basedir="."
+			destfile="../products/FileBrowser10.jar" 
+			manifest="META-INF/MANIFEST.MF">
+		</jar>
+	</target>
+	
+
+	<!-- Cleanup -->
+	
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="fri/**/*.class"/>
+				<!-- Do NOT delete open source library classes! -->
+			</fileset>
+		</delete>
+	</target>
+
+</project>

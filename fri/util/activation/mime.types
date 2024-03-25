@@ -1,0 +1,47 @@
+text/html                    htm HTM html HTML shtml SHTML
+text/plain                   java JAVA c C cc CC cpp CPP h H txt TXT
+text/rtf                     rtf RTF
+
+application/mac-binhex40     hqx HQX
+application/msword           doc DOC
+application/pdf              pdf PDF
+application/postscript       ai eps EPS ps PS
+
+application/x-compress       Z
+application/x-compressed     tgz
+application/x-gzip           gz
+application/x-msexcel        xls XLS
+application/x-stuffit        sit SIT
+application/x-tar            tar
+application/x-tex            tex
+application/x-troff-man      man
+application/x-zip-compressed zip ZIP jar JAR
+
+audio/aiff                   aiff AIFF
+audio/basic                  au AU
+audio/midi                   midi mid
+audio/x-mpeg                 mpeg mpg
+audio/wav                    wav WAV
+audio/x-aifc                 aifc
+audio/x-pn-realaudio         ram RAM
+
+image/apf                    apf APF
+image/bmp                    bmp BMP dib DIB
+image/gif                    gif GIF
+image/ico                    ico ICO
+image/ief                    ief IEF
+image/jpeg                   jpeg JPEG jpg JPG jpe JPE
+image/pcx                    pcx PCX
+image/pict                   pct PCT pic PIC pict PICT
+image/png                    png PNG
+image/psd                    psd PSD
+image/cmu-raster             cmu-raster ras RAS
+image/targa                  targa tga TGA
+image/tiff                   tif TIF tiff TIFF
+image/xbm                    xbm XBM
+image/xpm                    xpm XPM
+image/x-xwindowdump          x-xwindowdump xwd XWD
+
+video/mpeg                   mpeg mpg mpe MPEG MPG
+video/quicktime              qt QT mov MOV
+video/x-msvideo              avi AVI

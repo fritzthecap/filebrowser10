@@ -1,0 +1,17 @@
+# FriMail Mailcap Command Map
+#
+message/*;;		x-java-view=fri.gui.swing.mailbrowser.viewers.MessageViewer
+multipart/*;;		x-java-view=fri.gui.swing.mailbrowser.viewers.MultipartViewer
+text/plain;;		x-java-view=fri.gui.swing.mailbrowser.viewers.TextViewer
+text/html;;		x-java-view=fri.gui.swing.mailbrowser.viewers.HtmlViewer
+text/rtf;;		x-java-view=fri.gui.swing.mailbrowser.viewers.RtfViewer
+image/gif;;		x-java-view=fri.gui.swing.mailbrowser.viewers.GifJpegViewer
+image/jpeg;;		x-java-view=fri.gui.swing.mailbrowser.viewers.GifJpegViewer
+image/pjpeg;;		x-java-view=fri.gui.swing.mailbrowser.viewers.GifJpegViewer
+image/*;;		x-java-view=fri.gui.swing.mailbrowser.viewers.CommandLauncher
+audio/mp3;;		x-java-view=fri.gui.swing.mailbrowser.viewers.SoundViewer
+audio/x-mp3;;		x-java-view=fri.gui.swing.mailbrowser.viewers.SoundViewer
+audio/x-aiff;;		x-java-view=fri.gui.swing.mailbrowser.viewers.SoundViewer
+audio/x-wav;;		x-java-view=fri.gui.swing.mailbrowser.viewers.SoundViewer
+audio/x-ogg;;		x-java-view=fri.gui.swing.mailbrowser.viewers.SoundViewer
+application/*;;		x-java-view=fri.gui.swing.mailbrowser.viewers.CommandLauncher

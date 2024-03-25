@@ -1,0 +1,38 @@
+#
+
+text/html		html htm
+text/plain		txt text
+
+image/apf                    apf APF
+image/bmp                    bmp BMP dib DIB
+image/gif                    gif GIF
+image/ico                    ico ICO
+image/ief                    ief IEF
+image/jpeg                   jpeg JPEG jpg JPG jpe JPE
+image/pcx                    pcx PCX
+image/pict                   pct PCT pic PIC pict PICT
+image/png                    png PNG
+image/psd                    psd PSD
+image/cmu-raster             cmu-raster ras RAS
+image/targa                  targa tga TGA
+image/tiff                   tif TIF tiff TIFF
+image/xbm                    xbm XBM
+image/xpm                    xpm XPM
+image/x-xwindowdump          x-xwindowdump xwd XWD
+
+application/postscript	ai eps ps EPS PS
+application/rtf		rtf
+application/x-tex	tex
+application/x-texinfo	texinfo texi
+application/x-troff	t tr roff
+
+audio/basic		au AU
+audio/midi		midi mid
+audio/x-aifc		aifc
+audio/x-aiff            aif aiff AIFF
+audio/x-mpeg		mpeg mpg
+audio/x-wav             wav WAV
+
+video/mpeg                   mpeg mpg mpe MPEG MPG
+video/quicktime              qt QT mov MOV
+video/x-msvideo              avi AVI

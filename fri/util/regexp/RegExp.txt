@@ -1,0 +1,104 @@
+File Browser Configuration:
+---------------------------
+
+    The File Browser configuration file for
+        - word bounds definition and
+        - alternating separator
+    is in
+        fri/util/regexp/RegExpUtil.properties
+
+    If you need to have localized word bounds characters other
+    than "[^:alnum:_]" you can put it there and restart the browser.
+
+
+Escaping Characters In Search Pattern
+-------------------------------------
+
+    If you choose "No Regular Expressions", the only character you must
+    escape is "|" (or the character you wrote in RegExpUtil.properties
+    as "alternatingCharacter"). Escaping is done by backslash: "\|".
+
+
+
+EXCERPT FROM GNU-REGEXP DOCUMENTATION:
+======================================
+
+Within a regular expression, the following characters have special meaning:
+
+    Positional Operators
+    --------------------
+
+        ^ matches at the beginning of a line
+        $ matches at the end of a line
+        \A matches the start of the entire string
+        \Z matches the end of the entire string
+
+    One-Character Operators
+    -----------------------
+
+        . matches any single character
+        \d matches any decimal digit
+        \D matches any non-digit
+        \n matches a newline character
+        \r matches a return character
+        \s matches any whitespace character
+        \S matches any non-whitespace character
+        \t matches a horizontal tab character
+        \w matches any word (alphanumeric) character
+        \W matches any non-word (alphanumeric) character
+        \x matches the character x, if x is not one of the above listed escape sequences.
+
+    Character Class Operator
+    ------------------------
+
+        [abc] matches any character in the set a, b or c
+        [^abc] matches any character not in the set a, b or c
+        [a-z] matches any character in the range a to z, inclusive
+        A leading or trailing dash will be interpreted literally.
+
+    Within a character class expression, the following sequences have special meaning if
+    the syntax bit RE_CHAR_CLASSES is on:
+
+        [:alnum:] Any alphanumeric character
+        [:alpha:] Any alphabetical character
+        [:blank:] A space or horizontal tab
+        [:cntrl:] A control character
+        [:digit:] A decimal digit
+        [:graph:] A non-space, non-control character
+        [:lower:] A lowercase letter
+        [:print:] Same as graph, but also space and tab
+        [:punct:] A punctuation character
+        [:space:] Any whitespace character, including newline and return
+        [:upper:] An uppercase letter
+        [:xdigit:] A valid hexadecimal digit
+
+    Subexpressions and Backreferences
+    ---------------------------------
+
+        (abc) matches whatever the expression abc would match, and saves it as a
+              subexpression. Also used for grouping.
+        (?:...) pure grouping operator, does not save contents
+        (?#...) embedded comment, ignored by engine
+        \n where 0 < n < 10, matches the same thing the nth subexpression matched.
+
+    Branching (Alternation) Operator
+    --------------------------------
+
+        a|b matches whatever the expression a would match, or whatever the expression b
+            would match.
+
+    Repeating Operators
+    -------------------
+    These symbols operate on the previous atomic expression. 
+
+        ? matches the preceding expression or the null string
+        * matches the null string or any number of repetitions of the preceding expression
+        + matches one or more repetitions of the preceding expression
+        {m} matches exactly m repetitions of the one-character expression
+        {m,n} matches between m and n repetitions of the preceding expression, inclusive
+        {m,} matches m or more repetitions of the preceding expression
+
+    Stingy (Minimal) Matching
+    -------------------------
+    If a repeating operator (above) is immediately followed by a ?, the repeating operator
+    will stop at the smallest number of repetitions that can complete the rest of the match.
