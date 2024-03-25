@@ -20,7 +20,7 @@ You can run it then via
 
 	java -jar FileBrowser10.jar
 	
-If you don't want sources in the JAR, you have to modify build.xml.
+If you don't want sources in the JAR, you have to modify build.xml.  
 The application will create a (hidden) .friware directory in your user HOME where it persists runtime properties.
 Main class is 
 
