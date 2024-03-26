@@ -3,30 +3,35 @@ Author: Fritz Ritzberger, Vienna
 
 A platform-independent Java/Swing file explorer.
 
-This project is absolutely free.
+This project and its source is absolutely free.
 It is licensed under the GNU LIBRARY GENERAL PUBLIC LICENSE V2.
 I accept no responsibility for incorrect use.
 
+The source code has been started in 1999 and is nearly completely backward-compatible to Java 1.4.
 I dissociate myself from this source, I was inexperienced in OO when I wrote it.
 Nevertheless, this tool has served me well for 25 years on all platforms.
 
-Compile the project with ANT (this is not a Maven project):
+----
+
+This is not a Maven project.
+After you have configured your ANT installation in build.sh, compile the project:
 
 	cd filebrowser10
-	java -cp ../ant/ant.jar org.apache.tools.ant.Main
+	build.sh
 
-All open source libraries are present as .class files in various sub-directories.
-The newly compiled application will be in filebrowser10 root directory.
-Modify the sources and then run ANT, it will build a new FileBrowser10.jar.
-If you want all .java sources in the JAR, remove the "excludes" line 44 in build.xml.
+The newly compiled application will be in FileBrowser10.jar.
+If you want all .java sources in the JAR, remove the excludes on lines 72 and 77 in build.xml.
 
-You can run the application via
+You can optionally configure your JAVA installation in run.sh, then run the application:
 
-	java -jar FileBrowser10.jar
+	run.sh
 	
 The application will create a (hidden) .friware directory in your user HOME where it persists runtime properties.
-Main class is 
+To reset the application to its defaults (e.g. it appears on a non-existent screen),
+terminate the app, remove that directory and restart the app.
 
-	fri.gui.swing.filebrowser.FileBrowser.
+Main application class is in META-INF/MANIFEST.MF:
 
-The source code has been started in 1999 and is nearly completely backward-compatible to Java 1.4.
+	fri.gui.swing.filebrowser.FileBrowser
+
+Presssing F7 on any focused GUI component lets you configure colors, borders, fonts etc. of that focused component.

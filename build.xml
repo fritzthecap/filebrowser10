@@ -1,11 +1,29 @@
 <?xml version="1.0"?>
 
-<project name="friware" default="all">
+<project name="filebrowser10" default="all">
 
-<!--========================================================
-	Build command line:
-	java -cp .:../ant/ant.jar:../ant/xml-apis.jar:../ant/xercesImpl.jar org.apache.tools.ant.Main
-=========================================================-->
+	<!-- Libraries -->
+
+	<path id="activationlibs">
+		<pathelement location="lib/activation.jar"/>
+		<pathelement location="lib/icejni.jar"/>
+	</path>
+
+	<path id="maillibs">
+		<pathelement location="lib/mail.jar"/>
+		<pathelement location="lib/regexp.jar"/>
+		<pathelement location="lib/crypt.jar"/>
+	</path>
+	
+	<path id="filebrowserlibs">
+		<path refid="activationlibs"/>
+		<path refid="maillibs"/>
+		<pathelement location="lib/jtar.jar"/>
+		<pathelement location="lib/bzip2.jar"/>
+		<pathelement location="lib/sound.jar"/>
+		<pathelement location="lib/xml4j.jar"/>
+		<pathelement location="lib/jimi.jar"/>
+	</path>
 
 
 	<!-- Dependencies -->
@@ -14,25 +32,29 @@
 
 	<target name="builddynlib"> <!-- Classes loaded dynamically by name at runtime -->
 		<javac debug="on" srcdir="."
-			includes="fri/gui/awt/resourcemanager/resourceset/resource/*.java, fri/gui/swing/resourcemanager/resourceset/resource/*.java">
+				includes="fri/gui/awt/resourcemanager/resourceset/resource/*.java, fri/gui/swing/resourcemanager/resourceset/resource/*.java">
 		</javac>
 	</target>
 
 	<target name="compileActivation" depends="builddynlib">
 		<javac debug="on" srcdir="."
-			includes="fri/util/activation/*.java">
+				includes="fri/util/activation/*.java">
+			<classpath refid="activationlibs"/>
 		</javac>
 	</target>
 
 	<target name="compileMailBrowser" depends="compileActivation">
 		<javac debug="on" srcdir="."
-			includes="fri/gui/swing/mailbrowser/MailFrame.java, fri/gui/swing/mailbrowser/viewers/*.java, fri/util/mail/store/*.java, fri/util/browser/*.java">
+				includes="fri/gui/swing/mailbrowser/MailFrame.java, fri/gui/swing/mailbrowser/viewers/*.java, fri/util/mail/store/*.java, fri/util/browser/*.java">
+			<classpath refid="maillibs"/>
+			<classpath refid="activationlibs"/>
 		</javac>
 	</target>
 	
 	<target name="compileFileBrowser" depends="compileMailBrowser">
 		<javac debug="on" srcdir="."
-			includes="fri/gui/swing/filebrowser/FileBrowser.java">
+				includes="fri/gui/swing/filebrowser/FileBrowser.java">
+			<classpath refid="filebrowserlibs"/>
 		</javac>
 	</target>
 
@@ -40,13 +62,33 @@
 	<!-- Application Build -->
 	
 	<target name="FileBrowser" depends="compileFileBrowser">
-		<jar basedir="."
-				excludes="**/*.java"
-				destfile="FileBrowser10.jar" 
-				manifest="META-INF/MANIFEST.MF">
-			<exclude name="FileBrowser10.jar"/>
-			<exclude name=".git/**"/>
+		<!-- can't filter files from lib/*.jar, so extract them and filter them as fileset -->
+		<mkdir dir="tmp"/>
+		<unzip dest="tmp">
+			<fileset dir="lib" includes="*.jar"/>
+		</unzip>
+		
+		<jar manifest="META-INF/MANIFEST.MF" destfile="FileBrowser10.jar">
+			<fileset dir="." includes="fri/**/*" excludes="fri/**/*.java"/>
+			
+			<fileset dir="lib" includes="*.dll"/>
+			
+			<fileset dir="tmp">
+				<exclude name="**/*.java"/>
+				<exclude name="META-INF/MANIFEST.MF"/>
+				<exclude name="META-INF/LICENSE.txt"/>
+				<exclude name="META-INF/gfprobe-provider.xml"/>
+				<exclude name="META-INF/maven/**"/>
+				<exclude name="XML4J*.info"/>
+			</fileset>
+			
+			<metainf dir="fri/util/mail/store/META-INF/">
+				<include name="javamail.providers" />
+			</metainf>
 		</jar>
+		
+		<!-- clean up tmp directory -->
+		<delete dir="tmp"/>
 	</target>
 	
 
