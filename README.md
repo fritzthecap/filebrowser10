@@ -34,4 +34,19 @@ Main application class is in META-INF/MANIFEST.MF:
 
 	fri.gui.swing.filebrowser.FileBrowser
 
-Presssing F7 on any focused GUI component lets you configure colors, borders, fonts etc. of that focused component.
+Pressing F7 on any focused GUI component lets you configure colors, borders, fonts etc. of that focused component.
+
+----
+
+Eclipse Integration:
+
+- Package Explorer, context menu "Import"
+- Choose "General" - "Projects from Folder or Archive"
+- Select the filebrowser10 directory
+- Click "Finish"
+- Configure Build Path of the new Eclipse project
+-- on "Source" tab, select "Included" and click "Edit", add "fri" directory as inclusion
+-- on "Libraries" tab, add all *.jar from "lib" directory to "Classpath"
+-- on "Module Dependencies" tab, remove javax.xml module
+- Click "Apply and Close"
+
