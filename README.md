@@ -45,8 +45,8 @@ Eclipse Integration:
 - Select the filebrowser10 directory
 - Click "Finish"
 - Configure Build Path of the new Eclipse project
--- on "Source" tab, select "Included" and click "Edit", add "fri" directory as inclusion
--- on "Libraries" tab, add all *.jar from "lib" directory to "Classpath"
--- on "Module Dependencies" tab, remove javax.xml module
+  - on "Source" tab, select "Included" and click "Edit", add "fri" directory as inclusion
+  - on "Libraries" tab, add all *.jar from "lib" directory to "Classpath"
+  - on "Module Dependencies" tab, remove javax.xml module
 - Click "Apply and Close"
 
