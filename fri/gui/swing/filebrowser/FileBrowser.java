@@ -20,7 +20,7 @@ import fri.gui.swing.application.GuiApplication;
 public class FileBrowser extends GuiApplication
 {
 	public final static String configDir = GuiConfig.dir()+"filebrowser";
-	public final static String version = "10.0";
+	public final static String version = "10.1";
 	private final static String propfile = configDir+File.separator+"FileBrowser.properties";
 	private static NetWatcher netWatcher = null;
 	private static boolean closingAll = false;

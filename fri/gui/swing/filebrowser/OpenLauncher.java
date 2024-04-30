@@ -639,7 +639,10 @@ public class OpenLauncher implements ActionListener
 		// set working directory if first argument is command itself
 		File workingDirectory = null;
 		if (path != null && path.length() > 0)	{
-			workingDirectory = new File(path);
+	        if (path.equals("$DIR"))
+	            workingDirectory = (File)n[0].getObject();
+	        else
+	            workingDirectory = new File(path);
 		}
 		else
 		if (c1 != null && c1.equals("$FILE"))	{
