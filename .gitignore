@@ -5,3 +5,4 @@ bin
 **/*.class
 *.dll
 build-ulap105dev*
+FileBrowser.jar
