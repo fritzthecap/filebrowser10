@@ -7,7 +7,6 @@ import javax.swing.*;
 import javax.swing.tree.*;
 import fri.util.NumberUtil;
 import fri.util.application.Application;
-import fri.gui.SystemExitSecurityManager;
 import fri.gui.GuiConfig;
 import fri.gui.awt.geometrymanager.GeometryManager;
 import fri.gui.swing.application.GuiApplication;
@@ -174,16 +173,6 @@ public class FileBrowser extends GuiApplication
 	/** FileBrowser appliction main. */
 	public static final void main (String [] args)	{
 		System.out.println("Java File World "+version+", platform independent file manager. Author Fritz Ritzberger, Vienna 1999-2024");
-		try {
-			if (System.getSecurityManager() == null)
-				System.setSecurityManager(new SystemExitSecurityManager());
-			else
-				System.err.println("FEHLER: Konnte nicht SystemExitSecurityManager setzen: "+System.getSecurityManager());
-		}
-		catch (UnsupportedOperationException e) {
-			e.printStackTrace();
-		}
-		
 		SwingUtilities.invokeLater(new Runnable()	{
 			public void run()	{
 				new FileBrowser();
