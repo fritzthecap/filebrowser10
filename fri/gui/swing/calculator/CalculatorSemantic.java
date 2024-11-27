@@ -18,19 +18,19 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 				if (s.startsWith(Calculator.hexPrefix))	{	// hexadecimal number
 					s = s.substring(Calculator.hexPrefix.length());
 					long i = Long.parseLong(s, 16);
-					argument = new Double((double)i);
+					argument = Double.valueOf((double)i);
 				}
 				else
 				if (s.startsWith(Calculator.octPrefix))	{	// octal number
 					s = s.substring(Calculator.octPrefix.length());
 					long i = Long.parseLong(s, 8);
-					argument = new Double((double)i);
+					argument = Double.valueOf((double)i);
 				}
 				else
 				if (s.startsWith(Calculator.binPrefix))	{	// binary number
 					s = s.substring(Calculator.binPrefix.length());
 					long i = Long.parseLong(s, 2);
-					argument = new Double((double)i);
+					argument = Double.valueOf((double)i);
 				}
 				else	{
 					s = s.replace(Calculator.decimalSeparator, '.');
@@ -113,7 +113,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		else	{
 			throw new IllegalArgumentException("Unknown unary operator "+sym);
 		}
-		return new Double(d);
+		return Double.valueOf(d);
 	}
 
 	public Object unary_expression(Object PLUS_or_MINUS, Object unary_expression)
@@ -121,7 +121,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		if (PLUS_or_MINUS.equals(Calculator.minus))	{	// negate number
 			Double dbl = (Double)unary_expression;
 			double d = dbl.doubleValue();
-			unary_expression = new Double(-d);
+			unary_expression = Double.valueOf(-d);
 		}
 		return unary_expression;
 	}
@@ -132,7 +132,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		double d1 = dbl1.doubleValue();
 		Double dbl2 = (Double)unary_expression;
 		double d2 = dbl2.doubleValue();
-		return new Double(Math.pow(d1, d2));
+		return Double.valueOf(Math.pow(d1, d2));
 	}
 
 	public Object multiplicative_expression(Object multiplicative_expression, Object MULT_or_DIV_or_MOD, Object power_expression)
@@ -155,7 +155,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		else	{
 			throw new IllegalArgumentException("Unknown multiplicative operator "+MULT_or_DIV_or_MOD);
 		}
-		return new Double(d1);
+		return Double.valueOf(d1);
 	}
 
 	public Object additive_expression(Object additive_expression, Object PLUS_or_MINUS, Object multiplicative_expression)
@@ -174,7 +174,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		else	{
 			throw new IllegalArgumentException("Unknown additive operator "+PLUS_or_MINUS);
 		}
-		return new Double(d1);
+		return Double.valueOf(d1);
 	}
 
 	public Object shift_expression(Object shift_expression, Object SHIFT, Object additive_expression)
@@ -199,7 +199,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		else	{
 			throw new IllegalArgumentException("Unknown shift operator "+SHIFT);
 		}
-		return new Double(d1);
+		return Double.valueOf(d1);
 	}
 
 	public Object and_expression(Object and_expression, Object AND, Object shift_expression)
@@ -210,7 +210,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		double d2 = dbl2.doubleValue();
 		int i1 = (int)Math.rint(d1);
 		int i2 = (int)Math.rint(d2);
-		return new Double(i1 & i2);	// binary AND
+		return Double.valueOf(i1 & i2);	// binary AND
 	}
 
 	public Object exclusive_or_expression(Object exclusive_or_expression, Object XOR, Object and_expression)
@@ -221,7 +221,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		double d2 = dbl2.doubleValue();
 		int i1 = (int)Math.rint(d1);
 		int i2 = (int)Math.rint(d2);
-		return new Double(i1 ^ i2);	// binary XOR
+		return Double.valueOf(i1 ^ i2);	// binary XOR
 	}
 
 	public Object inclusive_or_expression(Object inclusive_or_expression, Object OR, Object exclusive_or_expression)
@@ -232,7 +232,7 @@ public strictfp class CalculatorSemantic extends ReflectSemantic
 		double d2 = dbl2.doubleValue();
 		int i1 = (int)Math.rint(d1);
 		int i2 = (int)Math.rint(d2);
-		return new Double(i1 | i2);	// binary OR
+		return Double.valueOf(i1 | i2);	// binary OR
 	}
 
 }

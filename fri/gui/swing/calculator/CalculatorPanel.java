@@ -303,11 +303,11 @@ public class CalculatorPanel extends SplitPane implements
 		}
 		else
 		if (e.getSource() == pi)	{
-			insertText(format(new Double(Math.PI)));
+			insertText(format(Double.valueOf(Math.PI)));
 		}
 		else
 		if (e.getSource() == this.e)	{
-			insertText(format(new Double(Math.E)));
+			insertText(format(Double.valueOf(Math.E)));
 		}
 		else	{
 			JButton src = (JButton)e.getSource();
