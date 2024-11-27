@@ -65,7 +65,7 @@ public abstract class FileChooser
 				pathToSelect,	// path to select
 				false,	// force path
 				null,	// filter
-				new Boolean(false),	// chooseFiles
+				Boolean.valueOf(false),	// chooseFiles
 				singleSelect);
 	}
 
@@ -83,7 +83,7 @@ public abstract class FileChooser
 				pathToSelect,
 				false,
 				null,
-				new Boolean(true),
+				Boolean.valueOf(true),
 				singleSelect);
 	}
 
@@ -121,7 +121,7 @@ public abstract class FileChooser
 				pathToSelect,
 				true,
 				filter, 
-				new Boolean(true),
+				Boolean.valueOf(true),
 				singleSelect);
 	}
 	
@@ -225,7 +225,7 @@ public abstract class FileChooser
 								files[i].isDirectory() && chooseOnlyFiles ||
 								!files[i].isDirectory() && chooseOnlyDirs)
 						{
-							System.err.println("  not accepted because of >"+files[i]+"< is directory = "+(files[i] != null ? new Boolean(files[i].isDirectory()) : null));
+							System.err.println("  not accepted because of >"+files[i]+"< is directory = "+(files[i] != null ? Boolean.valueOf(files[i].isDirectory()) : null));
 							return;
 						}
 					}
@@ -298,7 +298,7 @@ public abstract class FileChooser
 						new File(s),
 						false,
 						"*.jar",	// filter
-						new Boolean(true),	// showFiles
+						Boolean.valueOf(true),	// showFiles
 						true);	// singleSelect
 				lbl.setText(files != null ? files[0].getAbsolutePath() : "");
 			}

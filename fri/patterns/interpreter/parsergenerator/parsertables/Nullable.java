@@ -106,7 +106,7 @@ class Nullable extends Hashtable
 	}
 
 	private boolean putSymbol(String symbol, boolean value)	{
-		put(symbol, new Boolean(value));
+		put(symbol, Boolean.valueOf(value));
 		return value;
 	}
 

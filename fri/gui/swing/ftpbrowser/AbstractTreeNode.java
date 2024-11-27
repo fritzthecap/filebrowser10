@@ -40,7 +40,7 @@ public abstract class AbstractTreeNode extends fri.gui.mvc.model.swing.AbstractT
 			return true;
 
 		if (isDirectory == null)
-			isDirectory = new Boolean(isDirectory());
+			isDirectory = Boolean.valueOf(isDirectory());
 		
 		return isDirectory.booleanValue();
 	}

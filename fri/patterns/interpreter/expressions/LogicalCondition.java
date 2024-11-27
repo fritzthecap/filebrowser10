@@ -60,7 +60,7 @@ public class LogicalCondition extends AbstractCondition
 		}
 
 		this.valueHolder = valueHolder;
-		value = new Boolean(ret);
+		value = Boolean.valueOf(ret);
 		//System.err.println("evaluate >"+valueHolder+"< returns "+ret+" on "+this);
 		return value;
 	}

@@ -71,7 +71,7 @@ public class BoolPropViewDialog extends PropViewDialog
 			if (value.equals("true") || value.equals("false"))	{
 				Vector v = new Vector(2);
 				v.addElement(name);
-				v.addElement(new Boolean(value.equals("true") ? true : false));
+				v.addElement(Boolean.valueOf(value.equals("true") ? true : false));
 				values.addElement(v);
 			}
 		}

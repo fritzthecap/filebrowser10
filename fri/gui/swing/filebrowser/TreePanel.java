@@ -709,8 +709,8 @@ public class TreePanel extends JPanel implements
 					!getInclude(),
 					sortFlag,
 					sl_speed != null ? Integer.valueOf(sl_speed.getValue()) : null,
-					ckb_dropmenu != null ? new Boolean(ckb_dropmenu.isSelected()) : null,
-					ckb_refresh != null ? new Boolean(ckb_refresh.isSelected()) : null);
+					ckb_dropmenu != null ? Boolean.valueOf(ckb_dropmenu.isSelected()) : null,
+					ckb_refresh != null ? Boolean.valueOf(ckb_refresh.isSelected()) : null);
 		}
 		else
 			System.err.println("no persistent path: is null");

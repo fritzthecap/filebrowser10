@@ -53,7 +53,7 @@ public abstract class AbstractComparison extends AbstractCondition implements
 			ret = associate(o1, o2);
 		}
 
-		value = new Boolean(ret);
+		value = Boolean.valueOf(ret);
 		return value;
 	}
 	

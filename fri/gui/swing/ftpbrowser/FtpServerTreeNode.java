@@ -65,7 +65,7 @@ public class FtpServerTreeNode extends AbstractTreeNode
 		try	{	// need to know if new node is a directory, but it is not in longList
 			longList = null;
 			FtpServerTreeNode n = (FtpServerTreeNode)newChild;
-			n.isDirectory = new Boolean(getFtpClient().isDirectory(getAbsolutePath()+"/"+n.toString()));
+			n.isDirectory = Boolean.valueOf(getFtpClient().isDirectory(getAbsolutePath()+"/"+n.toString()));
 			// do it the hard way as the parent listing will not contain the new node
 		}
 		catch (Exception e)	{

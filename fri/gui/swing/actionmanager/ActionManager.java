@@ -583,7 +583,7 @@ public class ActionManager extends Hashtable
 		Render the checkable action. The callback gets the state of the item
 		by using <code>ActionManager.isChecked(actionEvent.getSource());</code>.<p>
 		visualizeCheckableAction() calls
-		<code>visualizeAction(name, menu, false, -1, new Boolean(checked));</code>
+		<code>visualizeAction(name, menu, false, -1, Boolean.valueOf(checked));</code>
 		@param name identifier of checkable action.
 		@param comp menu where the action will be added (rendered).
 		@param checked true if the checkbox should be selected from start.
@@ -594,7 +594,7 @@ public class ActionManager extends Hashtable
 		boolean checked,
 		JComponent comp)
 	{
-		return visualizeAction(name, comp, false, -1, new Boolean(checked));
+		return visualizeAction(name, comp, false, -1, Boolean.valueOf(checked));
 	}
 
 

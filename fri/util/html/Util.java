@@ -254,13 +254,13 @@ public class Util
 					s.equals(".jpeg") ||
 					s.equals(".png"))
 			{
-				directoryTests.put(urlStr, new Boolean(false));
+				directoryTests.put(urlStr, Boolean.valueOf(false));
 				return false;
 			}
 		} 
 
 		if (urlStr.toLowerCase().startsWith("mailto:"))	{
-			directoryTests.put(urlStr, new Boolean(false));
+			directoryTests.put(urlStr, Boolean.valueOf(false));
 			return false;
 		}
 
@@ -286,7 +286,7 @@ public class Util
 		}
 		
 		//System.err.println("... is directory "+urlStr+": "+ret);
-		directoryTests.put(urlStr, new Boolean(isDir));
+		directoryTests.put(urlStr, Boolean.valueOf(isDir));
 		return isDir;
 	}
 	

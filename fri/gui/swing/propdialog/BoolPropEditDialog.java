@@ -48,7 +48,7 @@ public class BoolPropEditDialog extends PropEditDialog
 		int newrow = row + 1;
 		insertRowAt(
 				new String((String)model.getValueAt(row, 0)),
-				new Boolean(((Boolean)model.getValueAt(row, 1)).booleanValue()),
+				Boolean.valueOf(((Boolean)model.getValueAt(row, 1)).booleanValue()),
 				newrow);
 		DefaultListSelectionModel lm = (DefaultListSelectionModel)table.getSelectionModel();
 		lm.addSelectionInterval(newrow, newrow);

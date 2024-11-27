@@ -80,16 +80,16 @@ public class OpenCommandList extends Vector
 				row.addElement(pattern);
 			else
 			if (i == MONITOR_COLUMN)	// "monitor window"
-				row.addElement(new Boolean(true));
+				row.addElement(Boolean.valueOf(true));
 			else
 			if (i == LOOP_COLUMN)	// "argument loop"
-				row.addElement(new Boolean(false));
+				row.addElement(Boolean.valueOf(false));
 			else
 			if (i == TYPE_COLUMN)	// folder or file
 				row.addElement(type);
 			else
 			if (i == INVARIANT_COLUMN)	// "condition for opening"
-				row.addElement(new Boolean(false));
+				row.addElement(Boolean.valueOf(false));
 			else
 				row.addElement("");
 		}
