@@ -42,12 +42,12 @@ public class InstanceManager
 		Object o;
 		if ((o = objectCache.get(key)) == null)	{
 			 objectCache.put(key, o = instance);
-			 inUseCounts.put(key, new Integer(1));
+			 inUseCounts.put(key, Integer.valueOf(1));
 			 System.err.println("InstanceManager: New singleton inserted, key is: "+key+", value is: "+o);
 		}
 		else	{	// increment instance count of client
 			Integer i = (Integer)inUseCounts.get(key);
-			i = new Integer(i.intValue() + 1);
+			i = Integer.valueOf(i.intValue() + 1);
 			inUseCounts.put(key, i);
 			System.err.println("InstanceManager: Incremented instance count to "+i+", key is: "+key+", value is: "+o);
 		}
@@ -98,7 +98,7 @@ public class InstanceManager
 				System.err.println("InstanceManager: Released the singleton of key: "+keyInstance);
 			}
 			else	{	// decrement instance count
-				i = new Integer(i.intValue() - 1);
+				i = Integer.valueOf(i.intValue() - 1);
 				inUseCounts.put(keyInstance, i);
 				System.err.println("InstanceManager: Decremented instance count to "+i+" for: "+keyInstance);
 				

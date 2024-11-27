@@ -109,7 +109,7 @@ public class RulesController extends ActionConnector implements
 		DefaultCreateCommand cmd = new DefaultCreateCommand(
 				getModel().createModelItem(null),	// dummy ModelItem
 				getModel(),
-				new Integer(selectedRow));
+				Integer.valueOf(selectedRow));
 		cmd.doit();
 		
 		setEnabledActions();
@@ -159,7 +159,7 @@ public class RulesController extends ActionConnector implements
 	}
 	
 	public void paste(int selectedRow, List target)	{
-		CommandArguments args = new CommandArguments.Paste(getModel(), new Integer(selectedRow));
+		CommandArguments args = new CommandArguments.Paste(getModel(), Integer.valueOf(selectedRow));
 		clipboard.paste(toModelItems(target), args);
 		setActionState();
 	}

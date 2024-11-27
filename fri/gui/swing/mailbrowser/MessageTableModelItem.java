@@ -45,9 +45,9 @@ public class MessageTableModelItem extends AbstractMutableTableModelItem
 		}
 	}
 
-	/** This implementation always returns <i>new Integer(0)</i> for insertion at start of list. */
+	/** This implementation always returns <i>Integer.valueOf(0)</i> for insertion at start of list. */
 	protected Integer createdPositionInMedium(ModelItem createdItem)	{
-		return new Integer(0);
+		return Integer.valueOf(0);
 	}
 
 

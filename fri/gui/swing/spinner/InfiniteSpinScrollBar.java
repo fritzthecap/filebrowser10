@@ -48,8 +48,8 @@ public class InfiniteSpinScrollBar extends FiniteSpinScrollBar
 		if (accessibleContext != null) {
 			accessibleContext.firePropertyChange(
 					AccessibleContext.ACCESSIBLE_VALUE_PROPERTY,
-					new Integer(value),
-					new Integer(value));
+					Integer.valueOf(value),
+					Integer.valueOf(value));
 		}
 	}
 	

@@ -47,12 +47,12 @@ public class MutableXmlTreeTableModel extends XmlTreeTableModel implements
 			}
 
 			cache.put(uri, model);
-			clients.put(uri, new Integer(1));
+			clients.put(uri, Integer.valueOf(1));
 		}
 		else	{
 			//Thread.dumpStack();
 			Integer cnt = (Integer)clients.get(uri);
-			cnt = new Integer(cnt.intValue() + 1);
+			cnt = Integer.valueOf(cnt.intValue() + 1);
 			clients.put(uri, cnt);
 		}
 
@@ -72,7 +72,7 @@ public class MutableXmlTreeTableModel extends XmlTreeTableModel implements
 			clients.remove(uri);
 		}
 		else	{
-			cnt = new Integer(cnt.intValue() - 1);
+			cnt = Integer.valueOf(cnt.intValue() - 1);
 			clients.put(uri, cnt);
 		}
 	}
@@ -113,7 +113,7 @@ public class MutableXmlTreeTableModel extends XmlTreeTableModel implements
 		MutableXmlNode pnt = (MutableXmlNode)node.getParent();
 		Integer pos = null;
 		if (pnt != null)	{
-			pos = new Integer(pnt.getIndex(node));
+			pos = Integer.valueOf(pnt.getIndex(node));
 		}
 		return new ModelParentAndPosition(this, new ControllerModelItem(pnt), pos);
 	}

@@ -48,7 +48,7 @@ public class FontResource extends Resource
 			//System.err.println("Calculated new row height: "+h);
 			if (h > 0)	{
 				try	{
-					setRowHeightMethod.invoke(component, new Object[] { new Integer(h) });
+					setRowHeightMethod.invoke(component, new Object[] { Integer.valueOf(h) });
 				}
 				catch (Exception e)	{
 					System.err.println("WARNING: Could not set row height: "+e.getMessage());

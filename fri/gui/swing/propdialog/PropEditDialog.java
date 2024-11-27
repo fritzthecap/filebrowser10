@@ -243,7 +243,7 @@ public class PropEditDialog extends PropViewDialog implements
 		if (iarr != null)	{
 			Iarr = new Integer [iarr.length];
 			for (int i = 0; i < iarr.length; i++)
-				Iarr[i] = new Integer(sorter.convertRowToModel(iarr[i]));
+				Iarr[i] = Integer.valueOf(sorter.convertRowToModel(iarr[i]));
 			QSort sorter = new QSort();
 			sorter.sort(Iarr);
 		}

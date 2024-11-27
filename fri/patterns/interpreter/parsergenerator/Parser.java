@@ -295,7 +295,7 @@ public class Parser implements Serializable
 	public boolean parse()
 		throws IOException
 	{
-		stateStack.push(new Integer(0));	// push first state on stack
+		stateStack.push(Integer.valueOf(0));	// push first state on stack
 		Integer action = ParserTables.SHIFT;	// some allowed initial value
 		Token token = getNextToken();	// start reading input
 		if (DEBUG)

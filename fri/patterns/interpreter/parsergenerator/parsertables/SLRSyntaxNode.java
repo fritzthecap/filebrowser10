@@ -107,7 +107,7 @@ class SLRSyntaxNode
 				// if not in list, add it, compute closure
 				if (index < 0)	{
 					index = syntaxNodes.size();
-					kernels.put(node, new Integer(index));
+					kernels.put(node, Integer.valueOf(index));
 					syntaxNodes.add(node);
 					node.closure(syntax);
 				}
@@ -223,7 +223,7 @@ class SLRSyntaxNode
 			
 			if (symbol != null)	{	// if pointer not at end of rule
 				//System.err.println("Regel-Zustand:	"+item);
-				setTableLine("GOTO", state, h, item, new Integer(item.followNodeIndex), symbol);
+				setTableLine("GOTO", state, h, item, Integer.valueOf(item.followNodeIndex), symbol);
 			}
 		}
 		return h;
@@ -269,7 +269,7 @@ class SLRSyntaxNode
 					if (item.ruleIndex == 0)	// is startnode
 						setParseTableLine(state, h, item, ParserTables.ACCEPT, terminal);
 					else	// ruleIndex > 0 means REDUCE
-						setParseTableLine(state, h, item, new Integer(item.ruleIndex), terminal);
+						setParseTableLine(state, h, item, Integer.valueOf(item.ruleIndex), terminal);
 				}
 			}
 		}
@@ -382,7 +382,7 @@ class SLRSyntaxNode
 			int result = 0;
 			for (Enumeration e = entries.elements(); e.hasMoreElements(); )
 				result ^= e.nextElement().hashCode();
-			hashCache = new Integer(result);
+			hashCache = Integer.valueOf(result);
 		}
 		return hashCache.intValue();
 	}
@@ -501,7 +501,7 @@ class SLRSyntaxNode
 		/** Returns rule index * 13 + position of dot. */
 		public int hashCode()	{
 			if (hashCache == null)
-				hashCache = new Integer(ruleIndex * 13 + pointerPosition);
+				hashCache = Integer.valueOf(ruleIndex * 13 + pointerPosition);
 			return hashCache.intValue();
 		}
 	

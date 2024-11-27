@@ -209,7 +209,7 @@ public class SLRParserTables extends AbstractParserTables
 		Integer itg = (Integer) hash.get(line);
 		if (itg == null)	{
 			table.add(line);
-			hash.put(line, new Integer(i));
+			hash.put(line, Integer.valueOf(i));
 		}
 		else	{
 			table.add(table.get(itg.intValue()));

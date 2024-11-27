@@ -119,7 +119,7 @@ public class FmFolder extends Folder
 			Message msg = (Message) this.msgCache.elementAt(i);
 			if (msg != null && msg.isSet(Flags.Flag.DELETED))	{
 				//System.err.println("FmFolder.deleted message from "+getName()+": "+i);
-				toDelete.addElement(new Integer(i));
+				toDelete.addElement(Integer.valueOf(i));
 			}
 			else	{
 				messages.addElement(msg);

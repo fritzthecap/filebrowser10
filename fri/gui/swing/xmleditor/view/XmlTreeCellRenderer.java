@@ -107,7 +107,7 @@ public class XmlTreeCellRenderer extends DefaultTreeCellRenderer
 	public Icon getIcon() {
 		Icon original = super.getIcon();
 
-		Integer key = new Integer(item.getNodeType());
+		Integer key = Integer.valueOf(item.getNodeType());
 		StringOverlayIcon icon = (StringOverlayIcon) cache.get(key);
 		if (icon == null)	{
 			icon = new StringOverlayIcon(item.getNodeType());
@@ -121,7 +121,7 @@ public class XmlTreeCellRenderer extends DefaultTreeCellRenderer
 
 	/** Overridden to return a disabled icon appropriate for the rendered XML node. */
 	public Icon getDisabledIcon() {
-		Integer key = new Integer(item.getNodeType());
+		Integer key = Integer.valueOf(item.getNodeType());
 		Icon icon = (Icon) disabledCache.get(key);
 		if (icon == null)	{
 			icon = getIcon();

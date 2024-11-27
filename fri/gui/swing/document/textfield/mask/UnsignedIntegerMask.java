@@ -77,7 +77,7 @@ public class UnsignedIntegerMask extends NumberMask
 		Long l = getLongValueInternal();
 		if (l == null)
 			return null;
-		return new Integer(l.intValue());
+		return Integer.valueOf(l.intValue());
 	}
 
 	/** Sets the integer value for this mask. */

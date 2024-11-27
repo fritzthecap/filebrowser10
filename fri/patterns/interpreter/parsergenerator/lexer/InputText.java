@@ -40,7 +40,7 @@ class InputText extends Input
 				else	// on WINDOWS, ignore \n after \r, but adjust previous line length
 					lineLengths.set(
 							lineLengths.size() - 1,
-							new Integer( ((Integer) lineLengths.get(lineLengths.size() - 1)).intValue() + 1 )
+							Integer.valueOf( ((Integer) lineLengths.get(lineLengths.size() - 1)).intValue() + 1 )
 							);
 			}
 			else	{
@@ -54,7 +54,7 @@ class InputText extends Input
 	}
 
 	private void newLine()	{
-		lineLengths.add(new Integer(column + 1));	// line length plus one for the newline, will be adjusted when \r\n
+		lineLengths.add(Integer.valueOf(column + 1));	// line length plus one for the newline, will be adjusted when \r\n
 
 		prevLength = column;
 		column = 0;	// reset current line offset

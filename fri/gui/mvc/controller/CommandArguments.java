@@ -42,9 +42,9 @@ import fri.gui.mvc.model.ModelItem;
 public class CommandArguments
 {
 	/** For copy/move commands, flag for semantics of "paste before" a node. */
-	public static final Integer PASTE_BEFORE = new Integer(1);
+	public static final Integer PASTE_BEFORE = Integer.valueOf(1);
 	/** For copy/move commands, flag for semantics of "paste after" a node. */
-	public static final Integer PASTE_AFTER = new Integer(2);
+	public static final Integer PASTE_AFTER = Integer.valueOf(2);
 
 	/** For move commands, the receiver model where the item goes to.
 		For copy, delete and create, the model where the item is created/deleted. */

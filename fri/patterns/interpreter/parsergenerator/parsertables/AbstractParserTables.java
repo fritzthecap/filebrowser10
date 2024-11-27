@@ -348,7 +348,7 @@ public abstract class AbstractParserTables implements
 				for (Iterator it = g.keySet().iterator(); it.hasNext(); )	{
 					String key = (String) it.next();
 					Object value = g.get(key);
-					fwrite("		g.put(\""+sub(key)+"\", new Integer("+value+"));\n");
+					fwrite("		g.put(\""+sub(key)+"\", Integer.valueOf("+value+"));\n");
 				}
 				fwrite("	}\n");
 			}
@@ -378,7 +378,7 @@ public abstract class AbstractParserTables implements
 				for (Iterator it = p.keySet().iterator(); it.hasNext(); )	{
 					String key = (String) it.next();
 					Object value = p.get(key);
-					fwrite("		p.put(\""+sub(key)+"\", new Integer("+value+"));\n");
+					fwrite("		p.put(\""+sub(key)+"\", Integer.valueOf("+value+"));\n");
 				}
 				fwrite("	}\n");
 			}

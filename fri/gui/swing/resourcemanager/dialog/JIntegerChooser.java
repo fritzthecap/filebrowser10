@@ -30,7 +30,7 @@ public class JIntegerChooser extends JResourceChooser
 	public Object getValue()	{
 		int rh = (int) integerChooser.getValue();
 		if (rh >= min)
-			return new Integer(rh);
+			return Integer.valueOf(rh);
 		return integer;
 	}
 	

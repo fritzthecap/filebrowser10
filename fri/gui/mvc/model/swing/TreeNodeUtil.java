@@ -52,7 +52,7 @@ public abstract class TreeNodeUtil
 	/** Returns the Integer position of the passed node within its parent. This is for locating insert positions. */
 	public static Integer getPosition(TreeNode node)	{
 		TreeNode parent = node.getParent();
-		return parent != null ? new Integer(parent.getIndex(node)) : null;
+		return parent != null ? Integer.valueOf(parent.getIndex(node)) : null;
 	}
 
 

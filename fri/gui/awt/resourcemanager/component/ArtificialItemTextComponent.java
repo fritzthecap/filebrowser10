@@ -53,7 +53,7 @@ class ArtificialItemTextComponent extends ArtificialComponent
 	/** Returns the item text by calling to the parent Component via reflection. */
 	public String getText()	{
 		try	{
-			Object o = itemGetMethod.invoke(parentComponent, new Object [] { new Integer(index) });
+			Object o = itemGetMethod.invoke(parentComponent, new Object [] { Integer.valueOf(index) });
 			return (String) o;
 		}
 		catch (Exception e)	{
@@ -65,8 +65,8 @@ class ArtificialItemTextComponent extends ArtificialComponent
 	/** Sets the new item text by calling to the parent Component via reflection, calling setTitleAt, or remove and insert. */
 	public void setText(String newText)	{
 		try	{
-			removeMethod.invoke(parentComponent, new Object [] { new Integer(index) });
-			insertMethod.invoke(parentComponent, new Object [] { newText, new Integer(index) });
+			removeMethod.invoke(parentComponent, new Object [] { Integer.valueOf(index) });
+			insertMethod.invoke(parentComponent, new Object [] { newText, Integer.valueOf(index) });
 		}
 		catch (Exception e)	{
 			System.err.println("WARNING: Could not set text to item "+index+": "+e.getMessage());

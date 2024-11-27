@@ -335,7 +335,7 @@ public class FilterTreeController extends AbstractClipboardController implements
 			position = TreeNodeUtil.getPosition(node);
 			
 			if (insertLocationType.equals(AFTER))
-				position = new Integer(position.intValue() + 1);
+				position = Integer.valueOf(position.intValue() + 1);
 				
 			node = (DefaultMutableTreeNode)node.getParent();
 		}
@@ -365,7 +365,7 @@ public class FilterTreeController extends AbstractClipboardController implements
 			return new StringComparison(new BeanVariable(), StringComparison.CONTAINS, new Constant(""));
 			
 		if (insertItemType.equals(NUMBER_COMPARE))
-			return new NumberComparison(new BeanVariable(), NumberComparison.EQUAL, new Constant(new Integer(0)));
+			return new NumberComparison(new BeanVariable(), NumberComparison.EQUAL, new Constant(Integer.valueOf(0)));
 			
 		if (insertItemType.equals(DATE_COMPARE))
 			return new DateComparison(new BeanVariable(), DateComparison.SAME_DAY, new Constant(new Date()));

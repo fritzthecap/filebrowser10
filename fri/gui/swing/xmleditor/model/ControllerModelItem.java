@@ -51,7 +51,7 @@ public class ControllerModelItem implements
 				return null;
 			}
 
-			return new ModelParentAndPosition(pasteInfo.getModel(), target, new Integer(pos));
+			return new ModelParentAndPosition(pasteInfo.getModel(), target, Integer.valueOf(pos));
 		}
 		else	{
 			MutableModel m = pasteInfo.getModel();	// target model
@@ -63,7 +63,7 @@ public class ControllerModelItem implements
 			else
 			if (pasteFlag == CommandArguments.PASTE_AFTER)	{	// paste after
 				int pos = ca.getPosition().intValue() + 1;
-				return new ModelParentAndPosition(m, ca.getParent(), new Integer(pos));
+				return new ModelParentAndPosition(m, ca.getParent(), Integer.valueOf(pos));
 			}
 		}
 
@@ -142,7 +142,7 @@ public class ControllerModelItem implements
 			}
 
 			actor = new ControllerModelItem(created);
-			Integer pos = new Integer(created.getInsertPosition());
+			Integer pos = Integer.valueOf(created.getInsertPosition());
 			nap = new ModelParentAndPosition(createInfo.getModel(), this, pos);
 		}
 		else	{

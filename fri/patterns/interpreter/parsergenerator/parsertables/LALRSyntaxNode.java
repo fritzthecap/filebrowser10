@@ -176,7 +176,7 @@ class LALRSyntaxNode extends LRSyntaxNode
 		/** The ruleIndex * 13 + dot poisition. */
 		public int hashCode()	{
 			if (hashCache == null)
-				hashCache = new Integer(ruleIndex * 13 + pointerPosition);
+				hashCache = Integer.valueOf(ruleIndex * 13 + pointerPosition);
 			return hashCache.intValue();
 		}
 

@@ -32,8 +32,8 @@ public class JMnemonicChooser extends JResourceChooser
 	public Object getValue()	{
 		String s = (String) mnemonicCombo.getSelectedItem();
 		if (s.length() != 1)
-			return new Integer(0);	// "(No Mnemonic)"
-		return new Integer(s.charAt(0));
+			return Integer.valueOf(0);	// "(No Mnemonic)"
+		return Integer.valueOf(s.charAt(0));
 	}
 	
 	protected Component getChooserPanel()	{

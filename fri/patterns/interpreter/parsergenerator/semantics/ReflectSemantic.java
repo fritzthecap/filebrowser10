@@ -24,10 +24,10 @@ import fri.patterns.interpreter.parsergenerator.Semantic;
 			int e = ((Integer) expression).intValue();
 			int t = ((Integer) term).intValue();
 			if (operator.equals("+"))
-				return new Integer(e + t);
+				return Integer.valueOf(e + t);
 			else
 			if (operator.equals("-"))
-				return new Integer(e - t);
+				return Integer.valueOf(e - t);
 			else
 				throw new IllegalArgumentException("Unknown operator: "+operator);
 		}

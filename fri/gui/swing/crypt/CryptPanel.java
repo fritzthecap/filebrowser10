@@ -281,7 +281,7 @@ public class CryptPanel extends JPanel implements
 		else
 		if (bytesAsNumbers.isSelected())	{
 			encrypted.setText(NumericDump.toNumberString(bytes, (int)numberBase.getValue(), 23));	// linelength 23
-			encrypted.renderByteLength(new Integer(bytes.length));
+			encrypted.renderByteLength(Integer.valueOf(bytes.length));
 		}
 		else	{
 			encrypted.setBytes(bytes);
@@ -335,7 +335,7 @@ public class CryptPanel extends JPanel implements
 			setText(bytes != null ? new String(bytes) : "");
 			setCaretPosition(0);
 			this.bytes = bytes;
-			renderByteLength(bytes != null ? new Integer(bytes.length) : null);
+			renderByteLength(bytes != null ? Integer.valueOf(bytes.length) : null);
 		}
 	
 		public void renderByteLength(Integer len)	{

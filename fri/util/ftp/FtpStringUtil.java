@@ -124,7 +124,7 @@ public abstract class FtpStringUtil
 		}
 		int low = Integer.parseInt(lowByte.toString());
 		
-		return new Object [] { ipAddress.toString(), new Integer(high+low) };
+		return new Object [] { ipAddress.toString(), Integer.valueOf(high+low) };
 	}
 
 	

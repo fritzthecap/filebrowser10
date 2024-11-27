@@ -61,7 +61,7 @@ public class Holidays extends Hashtable
 		with all holidays for the passed year.
 	*/
 	public static Holidays getHolidays(int year)	{
-		Integer y = new Integer(year);
+		Integer y = Integer.valueOf(year);
 		SoftReference sr = (SoftReference)yearCache.get(y);
 		if (sr != null)	{
 			Holidays h = (Holidays)sr.get();

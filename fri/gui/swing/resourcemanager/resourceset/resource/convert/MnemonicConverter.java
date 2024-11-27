@@ -10,12 +10,12 @@ public class MnemonicConverter extends AbstractConverter
 {
 	/** Turn the Character into a persistence string. */
 	public String objectToString(Object character)	{
-		return (character != null && character.equals(new Integer(0)) == false) ? new Character((char) ((Integer)character).intValue()).toString() : null;
+		return (character != null && character.equals(Integer.valueOf(0)) == false) ? new Character((char) ((Integer)character).intValue()).toString() : null;
 	}
 
 	/** Turn a persistence string into an Character object. */
 	public Object stringToObject(String spec)	{
-		return (spec != null && spec.length() == 1) ? new Integer(spec.charAt(0)) : null;
+		return (spec != null && spec.length() == 1) ? Integer.valueOf(spec.charAt(0)) : null;
 	}
 
 	public Class getGuiValueClass(Object component)	{

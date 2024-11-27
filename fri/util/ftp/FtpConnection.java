@@ -109,7 +109,7 @@ public class FtpConnection
 				
 				Class addrCls = Class.forName("java.net.InetSocketAddress");
 				constr = addrCls.getConstructor(new Class[] { String.class, int.class });
-				Object addr = constr.newInstance(new Object [] { host, new Integer(port) });
+				Object addr = constr.newInstance(new Object [] { host, Integer.valueOf(port) });
 				Class socketAddrClass = Class.forName("java.net.SocketAddress");
 				Method m = socketCls.getMethod("connect", new Class [] { socketAddrClass });
 				m.invoke(socket, new Object [] { addr });

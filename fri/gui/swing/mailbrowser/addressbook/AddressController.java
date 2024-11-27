@@ -99,7 +99,7 @@ public class AddressController extends ActionConnector implements
 		DefaultCreateCommand cmd = new DefaultCreateCommand(
 				getModel().createModelItem(null),	// dummy ModelItem
 				getModel(),
-				new Integer(selectedRow));
+				Integer.valueOf(selectedRow));
 		cmd.doit();
 		
 		setEnabledActions();
@@ -181,7 +181,7 @@ public class AddressController extends ActionConnector implements
 	}
 
 	private void paste(List target, int selectedRow)	{
-		CommandArguments args = new CommandArguments.Paste(getModel(), new Integer(selectedRow));
+		CommandArguments args = new CommandArguments.Paste(getModel(), Integer.valueOf(selectedRow));
 		clipboard.paste(toModelItems(target), args);
 	}
 

@@ -383,7 +383,7 @@ public class OpenLauncher implements ActionListener
 				//System.err.println(" ... success at "+i);
 				if (v == null)
 					v = new Vector();
-				v.addElement(new Integer(i));
+				v.addElement(Integer.valueOf(i));
 			}
 		}
 		return v;

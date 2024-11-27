@@ -21,7 +21,7 @@ public class ByteCommandArguments extends CommandArguments
 		this(model);
 		if (start < 0)
 			throw new IllegalArgumentException("Can not use a start offset < 0 for a MoveCommand: "+start);
-		this.position = new Integer(start);
+		this.position = Integer.valueOf(start);
 	}
 
 	/**

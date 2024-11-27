@@ -27,7 +27,7 @@ public abstract class AbstractMutableTableModel extends DefaultTableModel implem
 	/** Returns the context of the passed model item, which is a position that is found by seeking the item. */
 	public CommandArguments getModelItemContext(ModelItem item)	{
 		int i = getRowPosition((Vector)item.getUserObject());
-		Integer pos = i < 0 ? null : new Integer(i);
+		Integer pos = i < 0 ? null : Integer.valueOf(i);
 		return new CommandArguments.Context(this, pos);
 	}
 

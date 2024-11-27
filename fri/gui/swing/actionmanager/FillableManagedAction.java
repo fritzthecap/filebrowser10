@@ -443,7 +443,7 @@ public class FillableManagedAction extends ManagedAction
 		parent.insert(menuItem, pos);
 
 		delList.add(c);	// remove old menu from trigger list
-		addList.put(menuItem, new Integer(pos));	// store the new menu to trigger list
+		addList.put(menuItem, Integer.valueOf(pos));	// store the new menu to trigger list
 
 		//System.err.println((items != null ? "set" : "reset")+" MenuSubMenu in action \""+getName()+"\"");
 		if (items == null || allDisabled)

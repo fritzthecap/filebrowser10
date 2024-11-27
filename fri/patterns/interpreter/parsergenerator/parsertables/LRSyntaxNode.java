@@ -206,7 +206,7 @@ class LRSyntaxNode extends SLRSyntaxNode
 				int result = 0;
 				for (Enumeration e = lookahead.keys(); e.hasMoreElements(); )
 					result ^= e.nextElement().hashCode();
-				hashCache = new Integer(ruleIndex * 13 + pointerPosition + result);
+				hashCache = Integer.valueOf(ruleIndex * 13 + pointerPosition + result);
 			}
 			return hashCache.intValue();
 		}

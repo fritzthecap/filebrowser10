@@ -708,7 +708,7 @@ public class TreePanel extends JPanel implements
 					getShowHidden(),
 					!getInclude(),
 					sortFlag,
-					sl_speed != null ? new Integer(sl_speed.getValue()) : null,
+					sl_speed != null ? Integer.valueOf(sl_speed.getValue()) : null,
 					ckb_dropmenu != null ? new Boolean(ckb_dropmenu.isSelected()) : null,
 					ckb_refresh != null ? new Boolean(ckb_refresh.isSelected()) : null);
 		}

@@ -94,7 +94,7 @@ public class TopDownResourceContainerVisitee extends TopDownContainerVisitee
 	protected Object getItem(Object c, Method itemGetMethod, int index)
 		throws Exception
 	{
-		return itemGetMethod.invoke(c, new Object[] { new Integer(index) });
+		return itemGetMethod.invoke(c, new Object[] { Integer.valueOf(index) });
 	}
 
 	/** Creates an ArtificialItemTextComponent. To be overridden by Swing implementation. */

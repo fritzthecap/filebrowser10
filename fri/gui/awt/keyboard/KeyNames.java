@@ -446,7 +446,7 @@ public class KeyNames
 	protected void initTables()	{
 		String [] names = getKeyNames();
 		for (int i = 0; i < names.length; i++) {
-			Integer keyCode = new Integer(keys[i]);
+			Integer keyCode = Integer.valueOf(keys[i]);
 			keyTable.put(names[i], keyCode);
 			nameTable.put(keyCode, names[i]);
 		}
@@ -527,7 +527,7 @@ public class KeyNames
 		Returns a symbolic name for passed keycode and modifiers, e.g. "Ctl+Alt-DELETE".
 	*/
 	public String getKeyName(int keyCode, int modifiers)	{
-		String keyName = (String) nameTable.get(new Integer(keyCode));
+		String keyName = (String) nameTable.get(Integer.valueOf(keyCode));
 		String modifier = "";
 		
 		if ((modifiers & KeyEvent.SHIFT_MASK) != 0)

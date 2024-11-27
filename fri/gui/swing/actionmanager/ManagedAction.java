@@ -281,7 +281,7 @@ class ManagedAction extends AbstractAction
 		if (c instanceof JMenuItem)	{
 			MenuElement menu = (MenuElement)c.getParent();
 			int pos = getMenuItemPosition(menu, (JMenuItem)c);
-			triggerList.put(c, new Integer(pos));	// the menuitem and its position
+			triggerList.put(c, Integer.valueOf(pos));	// the menuitem and its position
 		}
 		else
 		if (c instanceof AbstractButton)	{

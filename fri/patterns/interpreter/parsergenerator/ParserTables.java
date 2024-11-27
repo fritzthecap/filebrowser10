@@ -21,13 +21,13 @@ import fri.patterns.interpreter.parsergenerator.syntax.Syntax;
 public interface ParserTables
 {
 	/** Special symbol occuring in a parser table, 0, means: syntax was correct when coming to that cell. */
-	public static final Integer ACCEPT = new Integer(0);
+	public static final Integer ACCEPT = Integer.valueOf(0);
 	
 	/** Special symbol occuring in a parser table, -1, means: error when coming to that cell. */
-	public static final Integer ERROR = new Integer(-1);
+	public static final Integer ERROR = Integer.valueOf(-1);
 
 	/** Special symbol occuring in a parser table, -2, means: read next token. */
-	public static final Integer SHIFT = new Integer(-2);
+	public static final Integer SHIFT = Integer.valueOf(-2);
 	
 
 	/**

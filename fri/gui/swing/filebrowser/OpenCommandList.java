@@ -98,7 +98,7 @@ public class OpenCommandList extends Vector
 	
 	/** @return environment for passed index of table-model vector */
 	public String [] getEnvironment(int idx)	{
-		Object o = environments.get(new Integer(idx));
+		Object o = environments.get(Integer.valueOf(idx));
 		if (o == null)
 			return null;
 		return (String[])o;
@@ -106,7 +106,7 @@ public class OpenCommandList extends Vector
 	
 	/** Put a environment String for passed index of table-model vector */
 	public void putEnvironment(int idx, String [] env)	{
-		environments.put(new Integer(idx), env);
+		environments.put(Integer.valueOf(idx), env);
 	}
 	
 	

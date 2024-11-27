@@ -441,7 +441,7 @@ public class FolderController extends ActionConnector implements
 			if (lastSelectedFolder != null && isMessageInFolder(lastSelectedFolder.getUserObject(), m))	{
 				MessageTableModel model = messageTable.getModel();
 				ModelItem item = new MessageTableModelItem(new MessageTableRow(m, model.rendersToAdress()));
-				model.doInsert(item, new CommandArguments.Position(new Integer(position)));
+				model.doInsert(item, new CommandArguments.Position(Integer.valueOf(position)));
 			}
 		}
 	}
@@ -1027,7 +1027,7 @@ public class FolderController extends ActionConnector implements
 
 		// build paste command argument: no sending model, as item contexts will not be found in current TableModel!
 		final CommandArguments arg = isMessages
-				? new CommandArguments.Paste(null, messageTable.getModel(), new Integer(0))
+				? new CommandArguments.Paste(null, messageTable.getModel(), Integer.valueOf(0))
 				: new CommandArguments.Paste(getFolderTreeModel());
 
 		// allocate runnables for pasting and after paste
