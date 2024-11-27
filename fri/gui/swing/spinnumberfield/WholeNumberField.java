@@ -67,7 +67,7 @@ public class WholeNumberField extends JTextField implements
 			throw new IllegalArgumentException("invalid value "+value+", not within min/max: "+min+"/"+max);
 
 		//System.err.println("WholeNumberField.setValue("+value+")");
-		mask.setLongValue(value == -1L ? null : new Long(value));
+		mask.setLongValue(value == -1L ? null : Long.valueOf(value));
 		((MaskingDocument)getDocument()).refresh();
 	}
 	

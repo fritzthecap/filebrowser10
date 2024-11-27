@@ -270,7 +270,7 @@ public class InfoTable extends JScrollPane implements
 		int i = data.getIndexOf(node);
 		if (i >= 0)	{
 			FileTableData v = (FileTableData)getModel().getDataVector();
-			model.setValueAt(new Long(size), i, v.getSizeColumn());
+			model.setValueAt(Long.valueOf(size), i, v.getSizeColumn());
 		}
 		else
 			System.err.println("setSubFolderSize, node not found: "+node);

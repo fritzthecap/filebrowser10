@@ -154,9 +154,9 @@ public class QSort
 	/* Test main */
 	public static void main(String [] args)	{
 		Vector v = new Vector();
-		v.add(new Long(100));
-		v.add(new Long(200));
-		v.add(new Long(300));
+		v.add(Long.valueOf(100));
+		v.add(Long.valueOf(200));
+		v.add(Long.valueOf(300));
 		v = new QSort(new Comparator()	{
 			public int compare(Object o1, Object o2) {
 				return ((Long) o1).intValue() - ((Long) o2).intValue();

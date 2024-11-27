@@ -87,7 +87,7 @@ public class TimeStopper
 	public String getTimeMillis()	{
 		suspend();
 		resume();
-		return new Long(timeSum).toString();
+		return Long.valueOf(timeSum).toString();
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class TimeStopper
 	*/
 	public String stopMillis()	{
 		suspend();
-		return new Long(timeSum).toString();
+		return Long.valueOf(timeSum).toString();
 	}
 	
 	/**
@@ -105,7 +105,7 @@ public class TimeStopper
 		long time = System.currentTimeMillis();
 		long interval = time - lastIntervalStop;
 		lastIntervalStop = time;
-		return new Long(interval).toString();
+		return Long.valueOf(interval).toString();
 	}
 	
 	

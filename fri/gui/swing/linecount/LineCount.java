@@ -333,7 +333,7 @@ public class LineCount extends JPanel implements
 			
 			add(f.getName());
 			add(lineCount(f));	// call linecount
-			add(new Long(chars));	// chars are now valid
+			add(Long.valueOf(chars));	// chars are now valid
 			
 			String s = f.getParent();
 			add(s != null ? s : "");
@@ -362,7 +362,7 @@ public class LineCount extends JPanel implements
 
 				while ((line = r.readLine()) != null)	{
 					if (progress.canceled())
-						return new Long(-1);
+						return Long.valueOf(-1);
 					
 					if (ignoreEmptyLines == false || line.trim().length() > 0)	{
 						lines++;
@@ -379,7 +379,7 @@ public class LineCount extends JPanel implements
 
 				progress.setNote(f.getPath());	// show immediately
 				//System.err.println("Line count is "+i+" for file "+f);
-				return new Long(lines);
+				return Long.valueOf(lines);
 			}
 			catch (Exception e)	{
 				//JOptionPane.showMessageDialog(frame, e.toString(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -389,7 +389,7 @@ public class LineCount extends JPanel implements
 				try	{ r.close(); } catch (Exception e) {}
 			}
 			
-			return new Long(-1);
+			return Long.valueOf(-1);
 		}
 		
 	}

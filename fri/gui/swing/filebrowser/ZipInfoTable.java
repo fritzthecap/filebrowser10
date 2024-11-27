@@ -99,7 +99,7 @@ public class ZipInfoTable extends InfoTable implements
 			if (type.toLowerCase().indexOf("folder") >= 0)	{
 				String n = (String)getModel().getValueAt(i, v.getNameColumn());
 				long size = zipdata.calculateZipFolderSize(i);
-				sizeHash.put(n, new Long(size));
+				sizeHash.put(n, Long.valueOf(size));
 			}
 		}
 		return sizeHash;

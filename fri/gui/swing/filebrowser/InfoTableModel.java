@@ -154,8 +154,8 @@ public class InfoTableModel extends DefaultTableModel
 			name,
 			n.getType(),
 			path,
-			new Long(n.getSize()),
-			new Long(n.getModified()),
+			Long.valueOf(n.getSize()),
+			Long.valueOf(n.getModified()),
 			n.getReadWriteAccess());
 			
 		return row;

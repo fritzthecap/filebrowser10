@@ -64,8 +64,8 @@ public class ZipInfoData extends FileTableData
 					z.isDirectory() ? "" : getName(z.getName()),
 					z.isDirectory() ? "Folder" : "File",
 					z.isDirectory() ? z.getName() : getPath(z.getName()),
-					new Long(z.getSize()),
-					new Long(z.getTime()),
+					Long.valueOf(z.getSize()),
+					Long.valueOf(z.getTime()),
 					z.getInfo());
 				addElement(row);
 			}

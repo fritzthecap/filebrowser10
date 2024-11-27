@@ -36,7 +36,7 @@ public class SelectiveTarEntry
 			return
 				Equals.equals(getModTime(), te.getModTime()) &&
 				Equals.equals(getName(), te.getName()) &&
-				Equals.equals(new Long(getSize()), new Long(te.getSize()));
+				Equals.equals(Long.valueOf(getSize()), Long.valueOf(te.getSize()));
 		}
 		return super.equals(o);
 	}

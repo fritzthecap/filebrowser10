@@ -2023,7 +2023,7 @@ public class FileNode implements NetNode
 			Date d = dateFormater.parse(time);
 			long t = d.getTime();
 			if (getFile().setLastModified(t))
-				return new Long(t);
+				return Long.valueOf(t);
 		}
 		catch (ParseException e)	{
 			//e.printStackTrace();
