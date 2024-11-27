@@ -207,7 +207,7 @@ public class OpenLauncher implements ActionListener
 				}
 				//System.err.println("undefined filename "+name);
 				undefined.addElement(name);
-				undefinedBool.addElement(new Boolean (n[i].isLeaf()));
+				undefinedBool.addElement(Boolean.valueOf(n[i].isLeaf()));
 				undefinedNode.addElement(n[i]);
 			}
 			else	{

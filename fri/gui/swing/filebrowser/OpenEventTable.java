@@ -147,16 +147,16 @@ public class OpenEventTable extends JScrollPane implements
 			if ((pattAndCmd = FileExtensions.isJavaClass(patt)) != null)	{
 				model.setValueAt(pattAndCmd[1], i, OpenCommandList.COMMAND_COLUMN);
 				model.setValueAt(pattAndCmd[0], i, OpenCommandList.PATTERN_COLUMN);
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("Internal Launch", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 			else
 			if ((pattAndCmd = FileExtensions.isArchive(patt)) != null)	{
 				model.setValueAt(pattAndCmd[1], i, OpenCommandList.COMMAND_COLUMN);
 				model.setValueAt(pattAndCmd[0], i, OpenCommandList.PATTERN_COLUMN);
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("View Archive", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 			else
@@ -164,8 +164,8 @@ public class OpenEventTable extends JScrollPane implements
 			{
 				model.setValueAt(pattAndCmd[1], i, OpenCommandList.COMMAND_COLUMN);
 				model.setValueAt(pattAndCmd[0], i, OpenCommandList.PATTERN_COLUMN);
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("View Document", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 			else
@@ -173,8 +173,8 @@ public class OpenEventTable extends JScrollPane implements
 			{
 				model.setValueAt(pattAndCmd[1], i, OpenCommandList.COMMAND_COLUMN);
 				model.setValueAt(pattAndCmd[0], i, OpenCommandList.PATTERN_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("Edit Document", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 			else
@@ -182,16 +182,16 @@ public class OpenEventTable extends JScrollPane implements
 			{
 				model.setValueAt(pattAndCmd[1], i, OpenCommandList.COMMAND_COLUMN);
 				model.setValueAt(pattAndCmd[0], i, OpenCommandList.PATTERN_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("View Image", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 //			else
 //			if (lpatt.endsWith(".java"))	{
 //				model.setValueAt("JAVA com.sun.tools.javac.Main -cp $CLASSPATH $FILE", i, OpenCommandList.COMMAND_COLUMN);
 //				model.setValueAt("*.java", i, OpenCommandList.PATTERN_COLUMN);
-//				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.LOOP_COLUMN);
-//				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+//				model.setValueAt(Boolean.FALSE, i, OpenCommandList.LOOP_COLUMN);
+//				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 //				model.setValueAt("Compile (Javac)", i, OpenCommandList.SHORTNAME_COLUMN);
 //			}
 			else
@@ -206,8 +206,8 @@ public class OpenEventTable extends JScrollPane implements
 			{
 				model.setValueAt("*."+FileUtil.getExtension(patt), i, OpenCommandList.PATTERN_COLUMN);
 				model.setValueAt("$FILE", i, OpenCommandList.COMMAND_COLUMN);
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("Execute", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 			else	{
@@ -216,16 +216,16 @@ public class OpenEventTable extends JScrollPane implements
 				s = (s == null || s.length() <= 0) ? patt : "*."+s;
 				model.setValueAt(s, i, OpenCommandList.PATTERN_COLUMN);
 				//model.setValueAt("VIEW $FILE", i, OpenCommandList.COMMAND_COLUMN);// cannot do that as line would be valid then
-				model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-				model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
+				model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+				model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
 				model.setValueAt("Open File", i, OpenCommandList.SHORTNAME_COLUMN);
 			}
 		}
 		else	{	// is folder
 			//model.setValueAt("mount $FILE", i, OpenCommandList.COMMAND_COLUMN);// cannot do that as line would be valid then
-			model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.LOOP_COLUMN);
-			model.setValueAt(Boolean.valueOf(false), i, OpenCommandList.MONITOR_COLUMN);
-			model.setValueAt(Boolean.valueOf(true), i, OpenCommandList.INVARIANT_COLUMN);
+			model.setValueAt(Boolean.TRUE, i, OpenCommandList.LOOP_COLUMN);
+			model.setValueAt(Boolean.FALSE, i, OpenCommandList.MONITOR_COLUMN);
+			model.setValueAt(Boolean.TRUE, i, OpenCommandList.INVARIANT_COLUMN);
 			model.setValueAt("Mount Device", i, OpenCommandList.SHORTNAME_COLUMN);
 		}
 	}

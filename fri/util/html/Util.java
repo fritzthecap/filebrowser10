@@ -254,13 +254,13 @@ public class Util
 					s.equals(".jpeg") ||
 					s.equals(".png"))
 			{
-				directoryTests.put(urlStr, Boolean.valueOf(false));
+				directoryTests.put(urlStr, Boolean.FALSE);
 				return false;
 			}
 		} 
 
 		if (urlStr.toLowerCase().startsWith("mailto:"))	{
-			directoryTests.put(urlStr, Boolean.valueOf(false));
+			directoryTests.put(urlStr, Boolean.FALSE);
 			return false;
 		}
 
