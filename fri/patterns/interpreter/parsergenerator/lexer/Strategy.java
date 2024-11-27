@@ -121,7 +121,7 @@ public class Strategy implements
 		
 		competitors = (List) competitiveGroups.get(candidate);
 		if (competitors == null)	// no competitors were found, mark candidate with dummy object
-			competitiveGroups.put(candidate, new Byte((byte)0));
+			competitiveGroups.put(candidate, Byte.valueOf((byte)0));
 		
 		return competitors;
 	}

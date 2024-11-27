@@ -113,7 +113,7 @@ public class HexTableModel extends AbstractTableModel implements
 			if (pos < 0)
 				return null;
 
-			return new Byte(bytes[pos]);
+			return Byte.valueOf(bytes[pos]);
 		}
 	}
 

@@ -263,7 +263,7 @@ public class NumericDump
 		while (stok.hasMoreTokens())	{
 			String s = stok.nextToken();
 			byte b = NumericDump.stringToByte(s, base);
-			v.add(new Byte(b));
+			v.add(Byte.valueOf(b));
 		}
 		
 		byte [] result = new byte[v.size()];

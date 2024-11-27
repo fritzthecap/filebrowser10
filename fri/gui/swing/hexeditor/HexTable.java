@@ -226,7 +226,7 @@ public class HexTable extends JTable implements
 				this,	// event source
 				"UPDATED",	// type, not really used as this is the only event
 				new ByteAndPosition(oldValue, row, column),	// old value
-				new ByteAndPosition(new Byte(newValue), row, column));	// new value
+				new ByteAndPosition(Byte.valueOf(newValue), row, column));	// new value
 		
 		// make controller create an UpdateCommand and execute it
 		getChangeNotifier().firePropertyChange(e);

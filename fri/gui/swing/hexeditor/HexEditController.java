@@ -43,7 +43,7 @@ public class HexEditController extends EditController implements
 	public static final String MENUITEM_32_COLUMNS = "32 Columns";
 	public static final String MENUITEM_64_COLUMNS = "64 Columns";
 	
-	private static final Byte NEW_DEFAULT = new Byte((byte)0);
+	private static final Byte NEW_DEFAULT = Byte.valueOf((byte)0);
 
 	private MdiClipboard clipboard;
 
