@@ -79,7 +79,7 @@ public class Strategy implements
 	/** Liefert die Items, die dem uebergebenen Start-Zeichen entsprechen wuerden. */
 	private List getItemsWithStartCharacter(int c)	{
 		init();
-		return (List) itemsWithStartChar.get(new Character((char)c));
+		return (List) itemsWithStartChar.get(Character.valueOf((char)c));
 	}
 
 	/** Liefert die Items, die kein bestimmtes Start-Zeichen definieren. */

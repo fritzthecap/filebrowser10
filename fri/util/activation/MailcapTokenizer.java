@@ -107,13 +107,13 @@ public class MailcapTokenizer
                     if(i == SEMICOLON_TOKEN || i == EQUALS_TOKEN)
                     {
                         currentToken = i;
-                        currentTokenValue = (new Character(i)).toString();
+                        currentTokenValue = (Character.valueOf(i)).toString();
                         dataIndex++;
                     }
                     else
                     {
                         currentToken = UNKNOWN_TOKEN;
-                        currentTokenValue = (new Character(i)).toString();
+                        currentTokenValue = (Character.valueOf(i)).toString();
                         dataIndex++;
                     }
                 }
@@ -124,13 +124,13 @@ public class MailcapTokenizer
                 if(i == SLASH_TOKEN || i == SEMICOLON_TOKEN || i == EQUALS_TOKEN)
                 {
                     currentToken = i;
-                    currentTokenValue = (new Character(i)).toString();
+                    currentTokenValue = (Character.valueOf(i)).toString();
                     dataIndex++;
                 }
                 else
                 {
                     currentToken = UNKNOWN_TOKEN;
-                    currentTokenValue = (new Character(i)).toString();
+                    currentTokenValue = (Character.valueOf(i)).toString();
                     dataIndex++;
                 }
             }

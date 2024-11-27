@@ -10,7 +10,7 @@ public class MnemonicConverter extends AbstractConverter
 {
 	/** Turn the Character into a persistence string. */
 	public String objectToString(Object character)	{
-		return (character != null && character.equals(Integer.valueOf(0)) == false) ? new Character((char) ((Integer)character).intValue()).toString() : null;
+		return (character != null && character.equals(Integer.valueOf(0)) == false) ? Character.valueOf((char) ((Integer)character).intValue()).toString() : null;
 	}
 
 	/** Turn a persistence string into an Character object. */

@@ -184,7 +184,7 @@ class Consumer implements
 		if (o instanceof CharacterSet)
 			return null;
 		else
-			return new Character(((String)o).charAt(0));
+			return Character.valueOf(((String)o).charAt(0));
 	}
 	
 
