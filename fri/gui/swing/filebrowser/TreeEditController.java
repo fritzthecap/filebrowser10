@@ -1,45 +1,72 @@
 package fri.gui.swing.filebrowser;
 
+import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.tree.*;
-import javax.swing.event.*;
-import java.util.*;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JSlider;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import fri.util.sort.quick.QSort;
-import fri.util.sort.quick.Comparator;
-import fri.util.os.OS;
-import fri.util.FileUtil;
-import fri.util.NumberUtil;
-import fri.util.file.*;
-import fri.util.file.archive.ArchiveFactory;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+
 import fri.gui.CursorUtil;
 import fri.gui.awt.clipboard.SystemClipboard;
 import fri.gui.awt.geometrymanager.GeometryManager;
-import fri.gui.swing.dnd.JavaFileList;
 import fri.gui.swing.BugFixes;
-import fri.gui.swing.ftpbrowser.FtpFrame;
-import fri.gui.swing.tail.TailFrame;
-import fri.gui.swing.IconUtil;
 import fri.gui.swing.ComponentUtil;
-import fri.gui.swing.combo.history.*;
-import fri.gui.swing.yestoalldialog.*;
-import fri.gui.swing.util.TextFieldUtil;
-import fri.gui.swing.editor.EditorFrame;
-import fri.gui.swing.commandmonitor.CommandMonitor;
+import fri.gui.swing.IconUtil;
 import fri.gui.swing.application.GuiApplication;	// for icon
-import fri.gui.swing.diff.*;
-import fri.gui.swing.calculator.*;
+import fri.gui.swing.calculator.CalculatorFrame;
+import fri.gui.swing.combo.history.HistCombo;
+import fri.gui.swing.combo.history.TextLineHolder;
+import fri.gui.swing.commandmonitor.CommandMonitor;
+import fri.gui.swing.crypt.CryptFrame;
+import fri.gui.swing.diff.DirDiffFrame;
+import fri.gui.swing.diff.FileDiffFrame;
+import fri.gui.swing.dnd.JavaFileList;
+import fri.gui.swing.editor.EditorFrame;
+import fri.gui.swing.ftpbrowser.FtpFrame;
+import fri.gui.swing.hexeditor.HexEditorFrame;
+import fri.gui.swing.mailbrowser.MailFrame;
 import fri.gui.swing.sound.SoundPlayerFrame;
 import fri.gui.swing.system.SystemInformationPanel;
-import fri.gui.swing.hexeditor.HexEditorFrame;
-import fri.gui.swing.crypt.CryptFrame;
-import fri.gui.swing.mailbrowser.MailFrame;
+import fri.gui.swing.tail.TailFrame;
+import fri.gui.swing.util.TextFieldUtil;
 import fri.gui.swing.xmleditor.XmlEditor;
+import fri.gui.swing.yestoalldialog.UserCancelException;
+import fri.util.FileUtil;
+import fri.util.NumberUtil;
+import fri.util.file.FileJoin;
+import fri.util.file.archive.ArchiveFactory;
+import fri.util.os.OS;
+import fri.util.sort.quick.Comparator;
+import fri.util.sort.quick.QSort;
 
 /**
 	User-Input Controller Objekt fuer Applikations-
@@ -2376,7 +2403,7 @@ public class TreeEditController extends TreeRequester implements
 		String used = NumberUtil.getFileSizeString(t - f);
 		JOptionPane.showMessageDialog(
 				getCursorComponent(),
-				"File Browser "+FileBrowser.version+"\n"+
+				FileBrowser.implementation()+"\n"+
 					"Author Fritz Ritzberger 1999-2024\n"+
 					"Maximum Memory:  "+max+"\n"+
 					"Currently: "+total+"\n"+

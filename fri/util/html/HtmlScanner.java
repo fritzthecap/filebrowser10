@@ -1,7 +1,10 @@
 package fri.util.html;
 
-import java.net.*;
-import java.io.*;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class HtmlScanner extends FilterInputStream
 {
@@ -73,7 +76,6 @@ public class HtmlScanner extends FilterInputStream
 	protected void finalize() throws java.lang.Throwable {
 		try { close(); }
 		catch (IOException e) {}
-		super.finalize();
 	}
 
 	public int read(byte[] b, int off, int len) throws IOException {

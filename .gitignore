@@ -5,4 +5,7 @@ bin
 **/*.class
 *.dll
 build-ulap105dev*
-FileBrowser.jar
+FileBrowser10.jar
+build/
+#used for eclipse output folder:
+out/

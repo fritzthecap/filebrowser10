@@ -45,10 +45,11 @@ Eclipse Integration:
 - Select the filebrowser10 directory
 - Click "Finish"
 - Configure Build Path of the new Eclipse project
-  - on "Source" tab, select "Included" and click "Edit", add "fri" directory as inclusion
-  - on "Libraries" tab, add all *.jar files in "lib" directory to "Classpath"
-  - on "Module Dependencies" tab, remove the java.xml module
-    - EDIT: this doesn't work, it would remove also lots of needed JRE modules that depend on java.xml.
-    - I fixed "The package org.w3c.dom is accessible from more than one module: \<unnamed\>, java.xml" by removing the org package from xml4j.jar.
+		- on "Source" tab, select "Included" and click "Edit", add "fri", "META-INF" directory as inclusion
+		- use "build" or "out" as output directory (for eclipse)
+		- on "Libraries" tab, add all *.jar files in "lib" directory to "Classpath"
 - Click "Apply and Close"
 
+----
+
+[current development issues: TODO.md](TODO.md)

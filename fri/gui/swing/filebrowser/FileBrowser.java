@@ -1,15 +1,20 @@
 package fri.gui.swing.filebrowser;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.WindowEvent;
 import java.io.File;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.tree.*;
-import fri.util.NumberUtil;
-import fri.util.application.Application;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.swing.SwingUtilities;
+import javax.swing.tree.DefaultTreeModel;
+
 import fri.gui.GuiConfig;
 import fri.gui.awt.geometrymanager.GeometryManager;
 import fri.gui.swing.application.GuiApplication;
+import fri.util.NumberUtil;
+import fri.util.application.Application;
 
 /**
 	Hierarchical File-System Explorer. Main-Class for this package.
@@ -18,10 +23,13 @@ import fri.gui.swing.application.GuiApplication;
 */
 public class FileBrowser extends GuiApplication
 {
+	private static final long serialVersionUID = 1L;
+
 	public final static String configDir = GuiConfig.dir()+"filebrowser";
-	public final static String version = "10.1";
 	private final static String propfile = configDir+File.separator+"FileBrowser.properties";
 	private static NetWatcher netWatcher = null;
+
+	public static Properties manifest;
 	private static boolean closingAll = false;
 	
 	private TreePanel treepanel;
@@ -71,7 +79,7 @@ public class FileBrowser extends GuiApplication
 	}
 	
 	private void init2(TreePanel treepanel, PathPersistent pp)	{
-		setTitle("Java File World "+version);
+		setTitle(implementation());
 		if (pp != null)	{
 			pp.setTree(treepanel.getTree());
 		}
@@ -168,11 +176,32 @@ public class FileBrowser extends GuiApplication
 		treepanel.getTree().requestFocus();
 	}
 
+	public static Properties manifest() {
+		if(manifest==null) {
+			manifest = new Properties();
+			try {
+				manifest.load(FileBrowser.class.getResourceAsStream("/META-INF/MANIFEST.MF"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return manifest;
+	}
+	public static String implementationName() {
+		return manifest().getProperty("Implementation-Title");
+	}
 
+	public static String implementationVersion() {
+		return manifest().getProperty("Implementation-Version");
+	}
 
+	public static String implementation() {
+		return implementationName()+" "+implementationVersion();
+	}
+	
 	/** FileBrowser appliction main. */
 	public static final void main (String [] args)	{
-		System.out.println("Java File World "+version+", platform independent file manager. Author Fritz Ritzberger, Vienna 1999-2024");
+		System.out.println(implementation()+", platform independent file manager. Author Fritz Ritzberger, Vienna 1999-2024");
 		SwingUtilities.invokeLater(new Runnable()	{
 			public void run()	{
 				new FileBrowser();
