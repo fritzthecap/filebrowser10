@@ -31,29 +31,36 @@
 	<target name="all" depends="clean, FileBrowser, clean"/>
 
 	<target name="builddynlib"> <!-- Classes loaded dynamically by name at runtime -->
-		<javac debug="on" srcdir="."
-				includes="fri/gui/awt/resourcemanager/resourceset/resource/*.java, fri/gui/swing/resourcemanager/resourceset/resource/*.java" target="1.8">
+		<javac debug="on" 
+				srcdir="."
+				includes="fri/gui/awt/resourcemanager/resourceset/resource/*.java, fri/gui/swing/resourcemanager/resourceset/resource/*.java" 
+				source="1.8" target="1.8">
 		</javac>
 	</target>
 
 	<target name="compileActivation" depends="builddynlib">
-		<javac debug="on" srcdir="."
+		<javac debug="on" 
+				srcdir="."
 				includes="fri/util/activation/*.java">
 			<classpath refid="activationlibs"/>
 		</javac>
 	</target>
 
 	<target name="compileMailBrowser" depends="compileActivation">
-		<javac debug="on" srcdir="."
-				includes="fri/gui/swing/mailbrowser/MailFrame.java, fri/gui/swing/mailbrowser/viewers/*.java, fri/util/mail/store/*.java, fri/util/browser/*.java" target="1.8">
+		<javac debug="on" 
+				srcdir="."
+				includes="fri/gui/swing/mailbrowser/MailFrame.java, fri/gui/swing/mailbrowser/viewers/*.java, fri/util/mail/store/*.java, fri/util/browser/*.java" 
+				source="1.8" target="1.8">
 			<classpath refid="maillibs"/>
 			<classpath refid="activationlibs"/>
 		</javac>
 	</target>
 	
 	<target name="compileFileBrowser" depends="compileMailBrowser">
-		<javac debug="on" srcdir="."
-				includes="fri/gui/swing/filebrowser/FileBrowser.java" target="1.8">
+		<javac debug="on" 
+    			srcdir="."
+    			includes="fri/gui/swing/filebrowser/FileBrowser.java" 
+    			source="1.8" target="1.8">
 			<classpath refid="filebrowserlibs"/>
 		</javac>
 	</target>
