@@ -188,18 +188,20 @@ public class CalendarPanel extends JPanel implements
 	
 
 	// test main
-	/*
+	///*
 	public static void main(String [] args)	{
-		//Locale.setDefault(Locale.US);
+		Locale.setDefault(Locale.GERMAN);
 
-		JFrame f = new JFrame("Calendar");
-		MonthPanel mp = new MonthPanel(null);
-		TimePanel tp = new TimePanel(mp.getCalendar(), false);
-		CalendarPanel cp = new CalendarPanel(mp, tp);
-		f.getContentPane().add(cp);
+		JFrame frame = new JFrame("Calendar");
+		MonthPanel monthPanel = new MonthPanel(null);
+		TimePanel timePanel = null; //new TimePanel(monthPanel.getCalendar(), false);
+		CalendarPanel calendarPanel = new CalendarPanel(monthPanel, timePanel);
+		calendarPanel.setEditable(false);
 		
-		f.pack();
-		f.show();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(calendarPanel);
+		frame.pack();
+		frame.setVisible(true);
 	}
-	*/
+	//*/
 }
