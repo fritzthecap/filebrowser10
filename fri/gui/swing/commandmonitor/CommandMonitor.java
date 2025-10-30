@@ -123,27 +123,6 @@ public class CommandMonitor extends DefaultCommandMonitor implements
 		return p;
 	}
 
-//	protected JComponent createUpperPanel()	{
-//		initEnv();
-//		
-//		JToolBar tb1 = new JToolBar();
-//		tb1.setFloatable(false);
-//		if (OS.isAboveJava13) tb1.setRollover(true);
-//		
-//		tf_cmd = createCommandComboBox();
-//		tf_cmd.addActionListener(this);
-//		tb1.add(tf_cmd);
-//		createInputButton(tb1);
-//
-//		JPanel p = new JPanel();
-//		p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-//
-//		p.add(fillToolBarWithActions(new JToolBar()));
-//		p.add(tb1);
-//
-//		return p;
-//	}
-	
 	protected JToolBar fillToolBarWithActions(JToolBar tb)	{
 		tb.setFloatable(false);
 		if (OS.isAboveJava13) tb.setRollover(true);
@@ -218,21 +197,6 @@ public class CommandMonitor extends DefaultCommandMonitor implements
 		((JTextComponent) errorText).addMouseListener(scrollLockListener);
 		((JScrollPane) outputScrollPane).getVerticalScrollBar().addMouseListener(scrollLockListener);
 		((JScrollPane) errorScrollPane).getVerticalScrollBar().addMouseListener(scrollLockListener);
-		
-		// stop scrolling when mouse wheel is used
-		// FRi 2009-10-27: does not work - turns off mouse wheel scrolling - ?
-//		try	{	// mouse wheel listener is not in JRE 1.3
-//			MouseWheelListener scrollLockWheelListener = new MouseWheelListener()	{
-//				public void mouseWheelMoved(MouseWheelEvent e) {
-//					handleStopMouseEventOnScrollLock();
-//				}
-//			};
-//			((JTextComponent) outputText).addMouseWheelListener(scrollLockWheelListener);
-//			((JTextComponent) errorText).addMouseWheelListener(scrollLockWheelListener);
-//		}
-//		catch (Throwable e)	{
-//			e.printStackTrace();
-//		}
 		
 		return separateOutput.isSelected() ? split : outputScrollPane;
 	}
