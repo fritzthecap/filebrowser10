@@ -743,9 +743,14 @@ public class OpenLauncher implements ActionListener
 
 		try	{
 			System.err.println("executing command: "+ArrayUtil.print(carr));
-			Process p = workingDirectory != null ?
+			final Process p = workingDirectory != null ?
 					Runtime.getRuntime().exec(carr, env, workingDirectory) :
 					Runtime.getRuntime().exec(carr, env);
+			
+			// fri_2025-10-30: fixing issue #2: need to consume stdout and stderr, 
+			// else process may freeze when it writes lots of logging
+			readAwayProcessOutput(p.getInputStream());
+            readAwayProcessOutput(p.getErrorStream());
 					
 			if (invariant)	{
 				System.err.println("waiting for termination of process ...");
@@ -761,6 +766,22 @@ public class OpenLauncher implements ActionListener
 			error = ex.toString();
 		}
 	}
+
+    private void readAwayProcessOutput(InputStream in) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (in.read() != -1) // -1 is end of stream
+                        ;
+                    in.close();
+                }
+                catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+    }
 
 
 	private void doInternalJavaLaunch(String cmd, String [] e)	{
