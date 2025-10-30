@@ -1,5 +1,5 @@
 A platform-independent Java/Swing file explorer with lots of tools like text-editor, hex-editor, xml-editor, mail-client, ftp-client, command-terminal, diff-views etc.
-Pressing F7 on any focused GUI-component lets you configure colors, borders, fonts etc. of that focused component.
+Pressing F7 on any focused GUI-component lets you configure colors, border, font and even text of that focused component.
 
 This project and its source is absolutely free.
 I accept no responsibility for incorrect use.
