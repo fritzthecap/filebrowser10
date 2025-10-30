@@ -114,16 +114,6 @@ public class FileBrowser extends GuiApplication
 	/** Implements Closeable: Schliessen des Fensters */
 	public boolean close()	{
 		if (closingAll == false && isLastToSave())	{
-			/*
-			int ret = JOptionPane.showConfirmDialog(
-							this,
-							"Really Exit File Browser?",
-							"Finish Application",
-							JOptionPane.YES_NO_OPTION);			
-			if (ret != JOptionPane.YES_OPTION)	{
-				return false;
-			}
-			*/
 		}
 		else	{
 			treepanel.removeNodeListeners();
@@ -143,15 +133,6 @@ public class FileBrowser extends GuiApplication
 
 	/** Callback fuer Menu-Item "Close All" */
 	public void closeAll()	{
-		/*
-		int ret = JOptionPane.showConfirmDialog(
-						this,
-						"Close All Windows and Exit?",
-						"Finish Application",
-						JOptionPane.YES_NO_OPTION);			
-		if (ret != JOptionPane.YES_OPTION)
-			return;
-		*/
 		closingAll = true;
 		Application.closeAllExit();
 		closingAll = false;
@@ -176,32 +157,44 @@ public class FileBrowser extends GuiApplication
 		treepanel.getTree().requestFocus();
 	}
 
-	public static Properties manifest() {
-		if(manifest==null) {
+	private static Properties manifest() {
+		if (manifest == null) {
 			manifest = new Properties();
 			try {
 				manifest.load(FileBrowser.class.getResourceAsStream("/META-INF/MANIFEST.MF"));
-			} catch (IOException e) {
+				// fri_2025-10-30: when run from Eclipse with Java 21,
+				// for some reason this finds jar:file:activation.jar/META-INF/MANIFEST.MF
+				// even when started in correct working directory!
+			}
+			catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		return manifest;
 	}
-	public static String implementationName() {
-		return manifest().getProperty("Implementation-Title");
+	
+	private static String implementationName() {
+		String title = manifest().getProperty("Implementation-Title");
+		if (title == null)
+		    title = "Java File World";
+		return title;
 	}
 
-	public static String implementationVersion() {
-		return manifest().getProperty("Implementation-Version");
+	private static String implementationVersion() {
+        String version = manifest().getProperty("Implementation-Version");
+        if (version == null)
+            version = "10.X";
+        return version;
 	}
 
 	public static String implementation() {
 		return implementationName()+" "+implementationVersion();
 	}
 	
-	/** FileBrowser appliction main. */
-	public static final void main (String [] args)	{
+	/** FileBrowser application main. */
+	public static void main (String [] args)	{
 		System.out.println(implementation()+", platform independent file manager. Author Fritz Ritzberger, Vienna 1999-2024");
+        System.out.println("Working directory: "+System.getProperty("user.dir"));
 		SwingUtilities.invokeLater(new Runnable()	{
 			public void run()	{
 				new FileBrowser();
