@@ -73,10 +73,10 @@ public class HtmlScanner extends FilterInputStream
 		stopped = true;
 	}
 
-	protected void finalize() throws java.lang.Throwable {
-		try { close(); }
-		catch (IOException e) {}
-	}
+//	protected void finalize() throws java.lang.Throwable {
+//		try { close(); }
+//		catch (IOException e) {}
+//	}
 
 	public int read(byte[] b, int off, int len) throws IOException {
 		int r = in.read(b, off, len);

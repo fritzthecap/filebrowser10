@@ -1,10 +1,21 @@
 package fri.util.html;
 
-import java.util.*;
-import java.net.*;
-import java.io.*;
-import fri.util.observer.CancelProgressObserver;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
+import java.util.Vector;
 import fri.util.file.ValidFilename;
+import fri.util.observer.CancelProgressObserver;
 
 /**
 	Do recursive enumeration and download of HTML pages (main routine).
@@ -102,10 +113,10 @@ public class Spider implements
 		Util.clearConnections();
 	}
 	
-	/** Overridden to call release(). */
-	protected void finalize() throws Exception	{
-		release();
-	}
+//	/** Overridden to call release(). */
+//	protected void finalize() throws Exception	{
+//		release();
+//	}
 
 	/**
 		Set search order. Default is breadth first.

@@ -206,8 +206,8 @@ public abstract class AbstractResourceFile extends Hashtable implements
 	}
 
 
-	protected void finalize()	{
-		MultiLanguage.removeChangeListener(this);
-	}
+//	protected void finalize()	{
+//		MultiLanguage.removeChangeListener(this);
+//	}
 
 }
