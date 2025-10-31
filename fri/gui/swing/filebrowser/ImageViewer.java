@@ -158,10 +158,6 @@ public class ImageViewer extends JFrame
         int width = (int) Math.round(smallerRatio * (double) image.width);
         int height = (int) Math.round(smallerRatio * (double) image.height);
         
-        if (Math.round((double) width / (double) height) != 
-                Math.round((double) image.width / (double) image.height))
-            throw new IllegalStateException("Calculated wrong ratio!");
-        
         return new Dimension(width, height);
     }
 }
