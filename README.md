@@ -1,40 +1,37 @@
-Author: Fritz Ritzberger, Vienna
-1999 - 2024
-
-A platform-independent Java/Swing file explorer.
+A platform-independent Java/Swing file explorer with lots of tools like text-editor, hex-editor, xml-editor, mail-client, ftp-client, command-terminal, diff-views etc.
+Pressing F7 on any focused GUI-component lets you configure colors, border, font and even text of that focused component.
 
 This project and its source is absolutely free.
-It is licensed under the GNU LIBRARY GENERAL PUBLIC LICENSE V2.
 I accept no responsibility for incorrect use.
+Implementation started in 1999 and is widely backward-compatible to Java 1.4.
 
-The source code has been started in 1999 and is nearly completely backward-compatible to Java 1.4.
-I dissociate myself from this source, I was inexperienced in OO when I wrote it.
-Nevertheless, this tool has served me well for 25 years on all platforms.
+Personally I dissociate myself from this source code. 
+I was inexperienced in OO when I started it, moreover it is unreadable and ugly:-)
+Nevertheless, this tool has served me well for 25 years on all platforms!
 
 ----
 
-This is not a Maven project.
+This is **not a Maven project**.
 After you have configured your ANT installation in build.sh, compile the project:
 
 	cd filebrowser10
 	build.sh
 
-The newly compiled application will be in FileBrowser10.jar.
-If you want all .java sources in the JAR, remove the excludes on lines 72 and 77 in build.xml.
+The newly compiled application will be in *FileBrowser10.jar*.
+If you want all .java sources in the JAR, remove the excludes on lines 79 and 84 in build.xml.
 
 You can optionally configure your JAVA installation in run.sh, then run the application:
 
 	run.sh
 	
-The application will create a (hidden) .friware directory in your user HOME where it persists runtime properties.
+The application will create a (hidden) *.friware* directory in your user HOME where it persists runtime properties.
 To reset the application to its defaults (e.g. it appears on a non-existent screen),
 terminate the app, remove that directory and restart the app.
 
-Main application class is in META-INF/MANIFEST.MF:
+Main application class (and latest version) is in *META-INF/MANIFEST.MF*:
 
 	fri.gui.swing.filebrowser.FileBrowser
 
-Pressing F7 on any focused GUI component lets you configure colors, borders, fonts etc. of that focused component.
 
 ----
 
@@ -51,5 +48,8 @@ Eclipse Integration:
 - Click "Apply and Close"
 
 ----
+
+Author: Fritz Ritzberger, Vienna
+1999 - 2024
 
 [current development issues: TODO.md](TODO.md)
