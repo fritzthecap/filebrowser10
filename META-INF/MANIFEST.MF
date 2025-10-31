@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Main-Class: fri.gui.swing.filebrowser.FileBrowser
 Implementation-Title: Java File World
-Implementation-Version: 10.1.1
+Implementation-Version: 10.1.2
 Implementation-Vendor: Fritz Ritzberger

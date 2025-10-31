@@ -615,7 +615,7 @@ public class OpenLauncher implements ActionListener
 			if (c1.equals("VIEW"))	{
 				CursorUtil.setWaitCursor(parent);
 				try	{
-				tc.viewNodes(n);
+				    tc.viewNodes(n);
 				}
 				finally	{
 					CursorUtil.resetWaitCursor(parent);

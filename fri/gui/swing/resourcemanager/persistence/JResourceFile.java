@@ -52,8 +52,8 @@ public class JResourceFile extends ResourceFile implements
 		}
 	}
 
-	protected void finalize()	{
-		LookAndFeel.removeChangeListener(this);
-	}
+//	protected void finalize()	{
+//		LookAndFeel.removeChangeListener(this);
+//	}
 
 }
