@@ -113,9 +113,7 @@ public class ImageViewer extends JFrame
                     images.add(index, image);
                     CursorUtil.resetWaitCursor(tab);
                     
-                    if (tab.getWidth() > 0 && tab.getHeight() > 0)
-                        setImageOnTab(index, tab, image);
-                    // else: resize event will render the image
+                    setImageOnTab(index, tab, image);
                 }
                 catch (Exception e) {
                     CursorUtil.resetWaitCursor(tab);
@@ -134,17 +132,20 @@ public class ImageViewer extends JFrame
 	}
 
     private void setImageOnTab(int index, JComponent tab, BufferedImage image) {
-        CursorUtil.setWaitCursor(tab);
-        try {
-            final Dimension imageDimension = new Dimension(image.getWidth(), image.getHeight());
-            final Dimension canvasDimension = new Dimension(tab.getWidth() - 6, tab.getHeight() - 6);
-            final Dimension zoomed = calculateZoomDimension(imageDimension, canvasDimension);
-            final ImageIcon icon = new ImageIcon(image.getScaledInstance(zoomed.width, zoomed.height, Image.SCALE_DEFAULT));
-            tabbedPane.setComponentAt(index, new JLabel(icon));
+        final Dimension canvasDimension = new Dimension(tab.getWidth(), tab.getHeight());
+        if (canvasDimension.width > 0 && canvasDimension.height > 0) {
+            CursorUtil.setWaitCursor(tab);
+            try {
+                final Dimension imageDimension = new Dimension(image.getWidth(), image.getHeight());
+                final Dimension zoomed = calculateZoomDimension(imageDimension, canvasDimension);
+                final ImageIcon icon = new ImageIcon(image.getScaledInstance(zoomed.width, zoomed.height, Image.SCALE_DEFAULT));
+                tabbedPane.setComponentAt(index, new JLabel(icon));
+            }
+            finally {
+                CursorUtil.resetWaitCursor(tab);
+            }
         }
-        finally {
-            CursorUtil.resetWaitCursor(tab);
-        }
+        // else: resize event will render the image
     }
 
 	private Dimension calculateZoomDimension(Dimension image, Dimension canvas) {
