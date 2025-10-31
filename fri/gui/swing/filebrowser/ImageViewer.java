@@ -85,7 +85,7 @@ public class ImageViewer extends JFrame
             @Override
             public void componentResized(ComponentEvent event) {
                 final int selectedIndex = tabbedPane.getSelectedIndex();
-                if (images.size() > selectedIndex && images.get(selectedIndex) != null)
+                if (selectedIndex >= 0 && images.size() > selectedIndex && images.get(selectedIndex) != null)
                     if (timer.isRunning())
                         timer.restart();
                     else
