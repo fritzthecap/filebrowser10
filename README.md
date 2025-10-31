@@ -1,6 +1,8 @@
 A platform-independent Java/Swing file explorer with lots of tools like text-editor, hex-editor, xml-editor, mail-client, ftp-client, command-terminal, diff-views etc.
 Pressing F7 on any focused GUI-component lets you configure colors, border, font and even text of that focused component.
 
+<img width="544" height="723" alt="Java-File-World_10 1 2" src="https://github.com/user-attachments/assets/115214f8-58cd-4288-8a80-1a1b8a4a9127" />
+
 This project and its source is absolutely free.
 I accept no responsibility for incorrect use.
 Implementation started in 1999 and is widely backward-compatible to Java 1.4.
