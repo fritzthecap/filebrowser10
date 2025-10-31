@@ -56,6 +56,13 @@ public class ImageViewer extends JFrame
                 setVisible(false);
             }
         });
+        IconUtil.setFrameIcon(this, GuiApplication.getApplicationIconURL());
+        new FileImageViewerDndListener(this); // receive drag&drop images
+        
+        this.tabbedPane = new JTabbedPane();
+        getContentPane().add(tabbedPane);
+        
+        new GeometryManager(this).show();
         
         addComponentListener(new ComponentAdapter() { // resize focused image to fit frame
             // we need a deferred resize, because component-events come very frequently
@@ -85,15 +92,6 @@ public class ImageViewer extends JFrame
                         timer.start();
             }
         });
-        
-        IconUtil.setFrameIcon(this, GuiApplication.getApplicationIconURL());
-        
-        new FileImageViewerDndListener(this); // receive drag&drop images
-        
-        this.tabbedPane = new JTabbedPane();
-        getContentPane().add(tabbedPane);
-        
-        new GeometryManager(this).show();
 	}
 		
 	private void showImageFiles(File [] files)	{
@@ -113,14 +111,16 @@ public class ImageViewer extends JFrame
                         throw new IllegalArgumentException("Can not read "+files[index]);
                     
                     images.add(index, image);
-                    
                     CursorUtil.resetWaitCursor(tab);
-    		        setImageOnTab(index, tab, image);
+                    
+                    if (tab.getWidth() > 0 && tab.getHeight() > 0)
+                        setImageOnTab(index, tab, image);
+                    // else: resize event will render the image
                 }
                 catch (Exception e) {
-                    //e.printStackTrace();
                     CursorUtil.resetWaitCursor(tab);
-                    images.add(index, null);
+                    if (images.size() <= index)
+                        images.add(index, null); // occupy index
                     
                     final JLabel error = new JLabel("<html>"+e.getMessage()+"</html>");
                     error.setFont(error.getFont().deriveFont(Font.BOLD, 16));
