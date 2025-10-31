@@ -51,7 +51,6 @@ Eclipse Integration:
 
 ----
 
-Author: Fritz Ritzberger, Vienna
-1999 - 2024
+Author: Fritz Ritzberger 1999 - 2025
 
 [current development issues: TODO.md](TODO.md)
