@@ -38,7 +38,7 @@ public class ImageViewer extends JFrame
 	/** Show passed Image Files in the frame singleton. */
 	public static void showImages(File [] files)	{
 	    if (singleton == null)
-	        singleton = new ImageViewer(files);
+	        singleton = new ImageViewer();
 	    singleton.showImageFiles(files);
 	}
 
@@ -46,7 +46,7 @@ public class ImageViewer extends JFrame
 	private final JTabbedPane tabbedPane;
 	private List<BufferedImage> images = new ArrayList<>();
 	
-	private ImageViewer(File [] files)	{
+	private ImageViewer()	{
 		super("Image Viewer"); // title bar text
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // never dispose singleton
